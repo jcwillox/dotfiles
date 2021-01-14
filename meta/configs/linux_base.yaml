@@ -1,0 +1,20 @@
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
+
+- shell:
+    - command: ./trysudo apt update -qq
+      description: Updating apt sources
+      stdin: true
+      stdout: true
+
+    - command: ./trysudo apt install -y progress python3-dev
+      description: Installing "progress" "python3-dev"
+      stdin: true
+      stdout: true
+
+- link:
+    ~/.local/bin/dotbot:
+      path: install
+      create: true

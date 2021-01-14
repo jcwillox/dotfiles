@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+if [ ! "$(which bat)" ]; then
+    current_version=0.0.0
+    echo "bat: not installed"
+else
+    current_version=$(bat --version | grep -oE "[0-9\.]+")
+    echo "bat: found $current_version"
+fi
+
+latest_version=$(curl -s https://github.com/sharkdp/bat/releases/latest | grep -oE '[0-9]+.[0-9\.]+')
+
+if [[ "$current_version" == "$latest_version" ]]; then 
+    echo "bat: up-to-date"
+else
+    echo "bat: new version found $latest_version"
+    echo "bat: downloading..."
+
+    curl -fsSLo bat_amd64.deb "https://github.com/sharkdp/bat/releases/download/v$latest_version/bat_${latest_version}_amd64.deb"
+    ./trysudo dpkg -i bat_amd64.deb
+    rm bat_amd64.deb
+fi

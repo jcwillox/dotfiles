@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+if [[ "$1" == "build" ]]; then
+    docker build -t dotfiles/test .
+fi
+
+docker run --rm -ti -v /etc/localtime:/etc/localtime:ro --name dotfiles-test dotfiles/test

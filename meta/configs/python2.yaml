@@ -1,0 +1,10 @@
+- shell:
+    - command: ./trysudo apt install -y python2
+      description: Installing "python2"
+      stdin: true
+      stdout: true
+
+    - command: ./python2/install-pip
+      description: Installing "pip2"
+      stdin: true
+      stdout: true

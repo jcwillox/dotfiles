@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+# install absolute latest version of gobuster
+
+if [ ! "$(which gobuster)" ]; then
+    current_version=0.0.0
+    echo "gobuster: not installed"
+else
+    echo "gobuster: found"
+fi
+
+latest_version=$(curl -s https://github.com/OJ/gobuster/releases/latest | grep -oE '[0-9]+.[0-9\.]+')
+
+if [[ "$current_version" == "$latest_version" ]]; then 
+    echo "gobuster: up-to-date"
+else
+    echo "gobuster: new version found $latest_version"
+    echo "gobuster: downloading..."
+
+    curl -fsSLo gobuster.zip "https://github.com/OJ/gobuster/releases/download/v$latest_version/gobuster-linux-amd64.7z"
+    7z x gobuster.zip -y > /dev/null
+    chmod +x ./gobuster-linux-amd64/gobuster
+
+    if [ "$(groups | grep "sudo\|root")" ]; then 
+        sudo mv ./gobuster-linux-amd64/gobuster /usr/local/bin/gobuster
+        echo "gobuster: installed /usr/local/bin/gobuster"
+    else
+        mv ./gobuster-linux-amd64/gobuster ~/.local/bin/gobuster
+        echo "gobuster: installed ~/.local/bin/gobuster"
+    fi
+
+    rm gobuster.zip
+    rm -r gobuster-linux-amd64
+fi
+

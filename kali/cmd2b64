@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+command=`echo -n "$@" | base64`
+echo "echo -n \"$command\" | base64 -d | bash"

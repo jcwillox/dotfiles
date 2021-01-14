@@ -1,0 +1,15 @@
+- shell:
+    - command: ./trysudo apt install -y rlwrap ncat p7zip-full
+      description: Installing "rlwrap" "ncat" "p7zip-full"
+      stdin: true
+      stdout: true
+
+    - command: ./gobuster/install
+      description: Installing "gobuster"
+      stdin: true
+      stdout: true
+
+- link:
+    ~/.config/zsh/kali.zsh:
+      path: zsh/kali.zsh
+      create: true

@@ -1,0 +1,10 @@
+- shell:
+    - command: ./exa/install
+      description: Installing "exa"
+      stdin: true
+      stdout: true
+
+- link:
+    ~/.config/zsh/exa.zsh:
+      path: exa/aliases.zsh
+      create: true

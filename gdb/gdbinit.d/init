@@ -1,0 +1,33 @@
+set confirm off
+# set prompt \033[31mgdb$ \033[0m
+
+define sdump
+    if $argc > 1
+        help sdump
+    else
+        if $argc == 0
+            set $data_addr = $rsp
+        else
+            set $data_addr = $rsp + $arg0
+        end
+        ddump 0x10
+    end
+end
+document sdump
+Display 16 lines of a hex dump from stack
+Usage: sdump [offset]
+end
+
+define mdump
+    if ($argc > 1 || $argc == 0)
+        help mdump
+    else
+        set $data_addr = $arg0
+        ddump 0x10
+    end
+end
+document mdump
+Display 16 lines of a hex dump from ADDR
+Usage: mdump ADDR
+end
+

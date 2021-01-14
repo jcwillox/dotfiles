@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+current_shell=$(getent passwd $USER | cut -d : -f 7)
+zsh_path=$(which zsh)
+
+if [ "$current_shell" ] && [ "$current_shell" != "$zsh_path" ]; then
+    chsh -s $zsh_path
+fi

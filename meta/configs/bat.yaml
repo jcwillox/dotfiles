@@ -1,0 +1,11 @@
+- shell:
+    - command: ./bat/install
+      description: Installing "bat"
+      stdin: true
+      stdout: true
+
+- link:
+    ~/.config/bat/config:
+        path: bat/config.conf
+        create: true
+        force: true

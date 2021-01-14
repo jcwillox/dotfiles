@@ -1,0 +1,10 @@
+- shell:
+    - command: ./trysudo apt install -y neofetch
+      description: Installing "neofetch"
+      stdin: true
+      stdout: true
+
+- link: 
+    ~/.config/neofetch/config.conf: 
+      path: neofetch/config.conf
+      create: true

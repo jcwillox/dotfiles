@@ -29,9 +29,9 @@ motd() {
 ############### MODULES ###############
 source $ZSH/oh-my-zsh.sh
 
-if [ "$TERM_PROGRAM" == "vscode" ]; then
+if [ "$TERM_PROGRAM" = "vscode" ]; then
   source ~/.config/p10k/robbyrussell.zsh
-elif [ "$ZSH_NO_THEME" != "true" ];
+elif [ "$ZSH_NO_THEME" != "true" ]; then
   source ~/.config/p10k/rainbow.zsh
 fi
 

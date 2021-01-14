@@ -1,0 +1,5 @@
+- shell:
+    - command: ./gh/install
+      description: Installing "gh"
+      stdin: true
+      stdout: true

@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 
-RUN apt update && apt install -y sudo python3 unzip curl git zsh
+RUN apt update && apt install -y sudo python3 python3-pip unzip curl git zsh
 
 # add user 'test' with password 'password'
 RUN useradd -p $(openssl passwd -1 password) test -G sudo

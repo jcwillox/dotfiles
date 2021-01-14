@@ -14,6 +14,11 @@
       stdin: true
       stdout: true
 
+    - command: ./trysudo pip3 install -U downloader-cli || pip3 install -U downloader-cli
+      description: Installing "downloader-cli"
+      stdin: true
+      stdout: true
+
 - link:
     ~/.local/bin/dotbot:
       path: install

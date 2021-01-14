@@ -5,7 +5,7 @@
       stdout: true
 
     - command: ./trysudo pip3 install -U pwntools || pip3 install -U pwntools
-      description: Installing "gobuster"
+      description: Installing "pwntools"
       stdin: true
       stdout: true
 

@@ -4,6 +4,11 @@
       stdin: true
       stdout: true
 
+- create:
+    - ~/.gdbinit.d
+
 - link:
-    ~/.gdbinit.d: gdb/gdbinit.d
+    ~/.gdbinit.d/dashboard: gdb/gdbinit.d/dashboard
+    ~/.gdbinit.d/init: gdb/gdbinit.d/init
+    ~/.gdbinit.d/useful: gdb/gdbinit.d/useful
     ~/.gdbinit: gdb/gdbinit

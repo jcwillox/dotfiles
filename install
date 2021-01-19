@@ -22,9 +22,7 @@ chdir(BASE_DIR)
 
 # add arguments
 parser = argparse.ArgumentParser(prog="dotbot")
-parser.add_argument(
-    "-c", "--config", action="extend", nargs="*", help="configs to install"
-)
+parser.add_argument("-c", "--config", nargs="*", help="configs to install")
 parser.add_argument("-U", "--update", action="store_true", help="update dotbot")
 parser.add_argument("--list", action="store_true", help="list configs")
 parser.add_argument("profile", nargs="?", help="specify profile to install")

@@ -125,12 +125,9 @@ class DotbotGit(dotbot.Plugin):
             return self._run_command(command)
 
         def _pull(self):
-
             command = 'git --work-tree="' + self.path + '"'
             command += ' --git-dir="' + self.path + '/.git"'
             command += " pull"
-            if self.shallow:
-                command += " --depth=1"
 
             return self._run_command(command)
 

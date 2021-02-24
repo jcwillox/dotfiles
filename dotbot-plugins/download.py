@@ -7,7 +7,7 @@ from urllib.request import urlretrieve
 CHUNK_SIZE = 4096  # 4 KiB
 
 
-class Shell(dotbot.Plugin):
+class DotbotDownload(dotbot.Plugin):
     """Download a file to specified destination."""
 
     _directive = "download"

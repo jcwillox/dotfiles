@@ -26,6 +26,9 @@ motd() {
   done
 }
 
+function base64d { echo -n "$1" | base64 -d }
+function base64e { echo -n "$1" | base64 }
+
 ############### MODULES ###############
 source $ZSH/oh-my-zsh.sh
 

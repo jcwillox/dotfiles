@@ -1,8 +1,8 @@
 from os import chmod, stat
-import dotbot
-
 from os.path import expanduser, isfile
 from urllib.request import urlretrieve
+
+import dotbot
 
 CHUNK_SIZE = 4096  # 4 KiB
 

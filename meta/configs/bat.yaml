@@ -6,6 +6,6 @@
 
 - link:
     ~/.config/bat/config:
-        path: bat/config.conf
-        create: true
-        force: true
+      path: bat/config.conf
+      create: true
+      force: true

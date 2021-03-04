@@ -1,4 +1,7 @@
-import subprocess, dotbot, os
+import dotbot
+import os
+import subprocess
+
 
 class DotbotGit(dotbot.Plugin):
     _directive = "git"

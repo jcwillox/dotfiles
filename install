@@ -13,11 +13,6 @@ from glob import glob
 BASE_DIR = dirname(realpath(__file__))
 DOTBOT_DIR = os.path.join(BASE_DIR, "dotbot")
 
-PLUGINS = ["dotbot-git/git.py", "dotbot-request/request.py"]
-PLUGIN_ARGS = []
-for plugin in PLUGINS:
-    PLUGIN_ARGS.extend(["-p", join(BASE_DIR, plugin)])
-
 chdir(BASE_DIR)
 
 # add arguments

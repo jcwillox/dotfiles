@@ -35,12 +35,10 @@
     ~/.config/p10k/robbyrussell.zsh:
       path: p10k/robbyrussell.zsh
 
-- shell:
-    - command: ./trysudo apt install -y zsh
-      description: Installing "zsh"
-      stdin: true
-      stdout: true
+- sudo:
+    - apt: zsh
 
+- shell:
     - command: 'zsh --version'
       stdout: true
 

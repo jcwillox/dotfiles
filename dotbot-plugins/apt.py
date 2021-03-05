@@ -29,7 +29,7 @@ class DotbotApt(dotbot.Plugin):
     def _update_package(self, package):
         try:
             subprocess.run(
-                "apt install -y %s" % package,
+                "apt install -qq -y %s" % package,
                 shell=True,
                 check=True,
                 stdout=not self.quiet,

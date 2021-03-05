@@ -32,10 +32,9 @@ class Sudo(dotbot.Plugin):
             if not self.allow_user:
                 self._log.lowinfo("User does not have root access")
                 return False
-            self._log.lowinfo("Running as user")
+            self._log.lowinfo("Running as User")
             args = sys.argv
         else:
-            self._log.lowinfo("Running as root")
             args = ["sudo"] + sys.argv
 
         data = [{"defaults": defaults}] + data

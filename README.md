@@ -22,7 +22,13 @@ $ ./install -c exa
 
 ## Testing
 
-You can build/run the test docker container using:
+There is a prebuilt docker container available on docker hub.
+
+```bash
+docker run --rm -ti -e TZ=Australia/Sydney --name dotfiles jcwillox/dotfiles
+```
+
+You can also build/run the test docker container using:
 
 ```bash
 # run

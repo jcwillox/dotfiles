@@ -1,31 +1,26 @@
-# this file must be run as root
-
 - defaults:
     download:
       quiet: true
       executable: true
 
-- shell:
-    - command: apt install -y seclists
-      description: Installing "seclists"
-      stdin: true
-      stdout: true
+- sudo:
+    - apt: seclists
 
-- create:
-    - /usr/share/enum
-    - /usr/share/webshells/php
+    - create:
+        - /usr/share/enum
+        - /usr/share/webshells/php
 
-- download:
-    /usr/share/enum/linuxprivchecker.py:
-      url: https://raw.githubusercontent.com/sleventyeleven/linuxprivchecker/master/linuxprivchecker.py
-      description: linuxprivchecker
-    /usr/share/enum/linuxprivchecker3.py:
-      url: https://raw.githubusercontent.com/cervoise/linuxprivcheck/master/linuxprivchecker3.py
-      description: linuxprivchecker3
-    /usr/share/webshells/php/p0wny-shell.php:
-      url: https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php
-      description: p0wny-shell
+    - download:
+        /usr/share/enum/linuxprivchecker.py:
+          url: https://raw.githubusercontent.com/sleventyeleven/linuxprivchecker/master/linuxprivchecker.py
+          description: linuxprivchecker
+        /usr/share/enum/linuxprivchecker3.py:
+          url: https://raw.githubusercontent.com/cervoise/linuxprivcheck/master/linuxprivchecker3.py
+          description: linuxprivchecker3
+        /usr/share/webshells/php/p0wny-shell.php:
+          url: https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php
+          description: p0wny-shell
 
-- link:
-    /usr/local/bin/cmd2b64:
-      path: kali/cmd2b64
+    - link:
+        /usr/local/bin/cmd2b64:
+          path: kali/cmd2b64

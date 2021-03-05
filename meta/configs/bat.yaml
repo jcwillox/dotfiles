@@ -1,8 +1,8 @@
-- shell:
-    - command: ./bat/install
-      description: Installing "bat"
-      stdin: true
-      stdout: true
+- sudo:
+    - shell:
+        - command: ./bat/install
+          description: Installing "bat"
+          stdout: true
 
 - link:
     ~/.config/bat/config:

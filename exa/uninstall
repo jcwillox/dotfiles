@@ -4,13 +4,6 @@ if [ "$(which exa)" ]; then
     current_version=$(exa --version | grep -oE "[0-9\.]+")
     echo "exa: removing $current_version"
 
-    FILE="$HOME/.local/bin/exa"
-    if [ -f "$FILE" ]; then
-        rm "$FILE" && echo "exa: removed ~/.local/bin/exa"
-    fi
-
     ROOT_FILE="/usr/local/bin/exa"
-    if [ "$(groups | grep "sudo\|root")" ]; then 
-        sudo rm "$ROOT_FILE" && echo "exa: removed $ROOT_FILE"
-    fi
+    sudo rm "$ROOT_FILE" && echo "exa: removed $ROOT_FILE"
 fi

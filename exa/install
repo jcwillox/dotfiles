@@ -10,7 +10,7 @@ fi
 
 latest_version=$(curl -s https://github.com/ogham/exa/releases/latest | grep -oE '[0-9]+.[0-9\.]+')
 
-if [[ "$current_version" == "$latest_version" ]]; then 
+if [[ "$current_version" == "$latest_version" ]]; then
     echo "exa: up-to-date"
 else
     echo "exa: new version found $latest_version"
@@ -19,13 +19,8 @@ else
     curl -fsSLo exa.zip "https://github.com/ogham/exa/releases/download/v$latest_version/exa-linux-x86_64-${latest_version}.zip"
     unzip exa.zip
 
-    if [ "$(groups | grep "sudo\|root")" ]; then 
-        sudo mv exa-linux-x86_64 /usr/local/bin/exa
-        echo "exa: installed /usr/local/bin/exa"
-    else
-        mv exa-linux-x86_64 ~/.local/bin/exa
-        echo "exa: installed ~/.local/bin/exa"
-    fi
+    sudo mv exa-linux-x86_64 /usr/local/bin/exa
+    echo "exa: installed /usr/local/bin/exa"
 
     rm exa.zip
 fi

@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# attempt to sudo command
-
-groups | grep "sudo\|root" > /dev/null && sudo "$@"

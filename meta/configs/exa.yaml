@@ -1,8 +1,8 @@
-- shell:
-    - command: ./exa/install
-      description: Installing "exa"
-      stdin: true
-      stdout: true
+- sudo:
+    - shell:
+        - command: ./exa/install
+          description: Installing "exa"
+          stdout: true
 
 - link:
     ~/.config/zsh/exa.zsh:

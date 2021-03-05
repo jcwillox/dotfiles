@@ -3,5 +3,5 @@
 if [ "$(which bat)" ]; then
     current_version=$(bat --version | grep -oE "[0-9\.]+")
     echo "bat: uninstalling $current_version"
-    ./trysudo apt remove bat
+    sudo apt remove bat
 fi

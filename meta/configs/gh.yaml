@@ -1,5 +1,5 @@
-- shell:
-    - command: ./gh/install
-      description: Installing "gh"
-      stdin: true
-      stdout: true
+- sudo:
+    - shell:
+        - command: ./gh/install
+          description: Installing "gh"
+          stdout: true

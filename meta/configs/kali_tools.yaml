@@ -1,18 +1,18 @@
-- shell:
-    - command: ./trysudo apt install -y rlwrap ncat p7zip-full
-      description: Installing "rlwrap" "ncat" "p7zip-full"
-      stdin: true
-      stdout: true
+- sudo:
+    - apt:
+        - rlwrap
+        - ncat
+        - p7zip-full
 
-    - command: ./trysudo pip3 install -U pwntools || pip3 install -U pwntools
-      description: Installing "pwntools"
-      stdin: true
-      stdout: true
+    - shell:
+        - command: pip3 install -U pwntools
+          description: Installing "pwntools"
+          stdin: true
+          stdout: true
 
-    - command: ./gobuster/install
-      description: Installing "gobuster"
-      stdin: true
-      stdout: true
+        - command: ./gobuster/install
+          description: Installing "gobuster"
+          stdout: true
 
 - link:
     ~/.config/zsh/kali.zsh:

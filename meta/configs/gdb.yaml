@@ -1,8 +1,5 @@
-- shell:
-    - command: ./trysudo apt install -y gdb
-      description: Installing "gdb"
-      stdin: true
-      stdout: true
+- sudo:
+    - apt: gdb
 
 - create:
     - ~/.gdbinit.d

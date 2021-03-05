@@ -7,7 +7,7 @@ COPY . /root/dotfiles
 
 ENV TERM xterm-256color
 
-RUN /root/dotfiles/install -U wsl
+RUN /root/dotfiles/install -U full
 
 WORKDIR /root
 

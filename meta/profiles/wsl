@@ -1,3 +1,2 @@
-:ubuntu
-kali_tools
-gdb
+:full
+wsl_base

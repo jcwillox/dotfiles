@@ -1,0 +1,4 @@
+- link:
+    ~/.config/zsh/wsl.zsh:
+      path: zsh/wsl.zsh
+      create: true

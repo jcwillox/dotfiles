@@ -1,7 +1,8 @@
 ############### ENVIRONMENT ###############
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-export EDITOR='vim'
+export EDITOR="vim"
+export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
 ############### ALIASES ###############

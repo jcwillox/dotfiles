@@ -1,0 +1,15 @@
+set nocompatible
+
+set viminfo+=n$HOME/.config/vim/viminfo
+let $MYVIMRC="$HOME/.config/vim/vimrc"
+
+set nobackup
+set noundofile
+set showmatch
+set number
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set listchars=tab:>>,nbsp:~
+syntax on

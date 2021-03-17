@@ -5,7 +5,7 @@
         - p7zip-full
 
     - shell:
-        - command: pip3 install -U pwntools
+        - command: pip3 install -U -q pwntools
           description: Installing "pwntools"
           stdin: true
           stdout: true

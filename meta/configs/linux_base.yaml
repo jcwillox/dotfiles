@@ -16,7 +16,7 @@
         - python3-pip
 
     - shell:
-        - command: pip3 install -U downloader-cli
+        - command: pip3 install -U -q downloader-cli
           description: Installing "downloader-cli"
           stdin: true
           stdout: true

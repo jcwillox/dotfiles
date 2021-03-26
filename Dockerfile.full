@@ -1,7 +1,8 @@
-FROM ubuntu:focal
+FROM python:buster
 
-RUN apt update && DEBIAN_FRONTEND="noninteractive" \
-    apt install -y sudo python3 python3-pip unzip curl git zsh tzdata
+LABEL org.opencontainers.image.source=https://github.com/jcwillox/dotfiles
+
+RUN apt update && apt install -y sudo zsh
 
 COPY . /root/dotfiles
 

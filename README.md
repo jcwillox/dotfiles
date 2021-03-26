@@ -16,7 +16,7 @@ $ ./install -U ubuntu
 
 To install a specific config use:
 ```bash
-# $ ./install -c <config>
+# ./install -c <config>
 $ ./install -c exa
 ```
 
@@ -25,7 +25,7 @@ $ ./install -c exa
 There is a prebuilt docker container available on docker hub.
 
 ```bash
-docker run --rm -ti -e TZ=Australia/Sydney --name dotfiles jcwillox/dotfiles
+docker run --rm -ti -e TZ=Australia/Sydney --name dotfiles ghcr.io/jcwillox/dotfiles:latest
 ```
 
 You can also build/run the test docker container using:

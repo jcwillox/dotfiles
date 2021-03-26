@@ -1,6 +1,9 @@
 ############### ENVIRONMENT ###############
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
+DISABLE_MAGIC_FUNCTIONS=true
+zle_highlight=('paste:none')
+
 export EDITOR="vim"
 export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
@@ -9,12 +12,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
 alias servedir="python3 -m http.server -b 0.0.0.0 80"
+alias mkd=take
 
 # colorize
 alias ip='ip --color=auto'
 
 # optional
-[ -x /usr/bin/docker ] && alias dps="docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'"
+alias dps="docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'"
 
 ############### KEYBINDS ###############
 bindkey "^[[1~" beginning-of-line
@@ -55,9 +59,6 @@ fi
 
 # Uncomment the following line to change how often to auto-update (in days).
 # export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"

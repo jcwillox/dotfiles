@@ -13,6 +13,9 @@ alias gobustera="gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2
 alias ncl="rlwrap -r nc -lvnp"  # enter port
 alias nclp="rlwrap -r nc -lvnp 1234"  # default port
 
+# SSH
+alias sshq="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
+
 ############### FUNCTIONS ###############
 os-version() {
     grep VERSION /etc/os-release

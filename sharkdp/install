@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# general installer for sharkdp's rust based applications
+
+app=$1
+
+if [[ "$app" == "list" ]]; then
+    echo "bat, hyperfine, hexyl, fd, vivid, pastel, lscolors, diskus"
+    exit 0
+fi
+
+if [ ! "$(which $app)" ]; then
+    current_version=0.0.0
+    echo "$app: not installed"
+else
+    current_version=$($app --version | grep -oE "[0-9\.]+")
+    echo "$app: found $current_version"
+fi
+
+latest_version=$(curl -s "https://github.com/sharkdp/$app/releases/latest" | grep -oE '[0-9]+.[0-9\.]+')
+
+if [ "$2" ]; then
+    latest_version=$2
+fi
+
+if [[ "$current_version" == "$latest_version" ]]; then
+    echo "$app: up-to-date"
+else
+    echo "$app: new version found $latest_version"
+    echo "$app: downloading..."
+
+    curl -fsSLo ${app}_amd64.deb "https://github.com/sharkdp/$app/releases/download/v$latest_version/${app}_${latest_version}_amd64.deb"
+    sudo dpkg -i ${app}_amd64.deb
+    rm ${app}_amd64.deb
+fi

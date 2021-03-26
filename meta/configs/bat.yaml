@@ -1,11 +1,11 @@
 - sudo:
     - shell:
-        - command: ./bat/install
+        - command: ./sharkdp/install bat
           description: Installing "bat"
           stdout: true
 
 - link:
     ~/.config/bat/config:
-      path: bat/config.conf
+      path: sharkdp/bat.conf
       create: true
       force: true

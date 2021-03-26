@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [ "$(which bat)" ]; then
-    current_version=$(bat --version | grep -oE "[0-9\.]+")
-    echo "bat: uninstalling $current_version"
-    sudo apt remove bat
-fi

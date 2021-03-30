@@ -1,0 +1,6 @@
+- sudo:
+    - git:
+        /usr/share/wordlists/seclists:
+          url: https://github.com/danielmiessler/SecLists
+          description: SecLists
+          shallow: true

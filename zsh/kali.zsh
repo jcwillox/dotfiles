@@ -26,3 +26,8 @@ os-update() {
     sudo apt update && sudo apt -y full-upgrade
     [ -f /var/run/reboot-required ] && sudo reboot -f
 }
+
+cmd2b64() {
+  command=`echo -n "$@" | base64`
+  echo "echo -n \"$command\" | base64 -d | bash"
+}

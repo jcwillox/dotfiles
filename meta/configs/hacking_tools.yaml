@@ -4,7 +4,24 @@
       executable: true
 
 - sudo:
-    - apt: seclists
+    - apt:
+        - rlwrap
+        - ncat
+        - p7zip-full
+
+    - shell:
+        - command: pip3 install -U -q pwntools
+          description: Installing "pwntools"
+          stdin: true
+          stdout: true
+
+        - command: ./gobuster/install
+          description: Installing "gobuster"
+          stdout: true
+
+        - command: ./scripts/install-wordlists
+          description: Installing "wordlists"
+          stdout: true
 
     - create:
         - /usr/share/enum
@@ -21,6 +38,7 @@
           url: https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php
           description: p0wny-shell
 
-    - link:
-        /usr/local/bin/cmd2b64:
-          path: kali/cmd2b64
+- link:
+    ~/.config/zsh/kali.zsh:
+      path: zsh/kali.zsh
+      create: true

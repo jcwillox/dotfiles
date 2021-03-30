@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+dirbuster_version=0.4.0
+dirbuster_path=/usr/share/wordlists/dirbuster
+
+if [ ! -d $dirbuster_path ]; then
+  echo "downloading: dirbuster wordlists..."
+
+  curl -fsSLo dirbuster.tar.gz "https://github.com/daviddias/node-dirbuster/archive/v$dirbuster_version.tar.gz"
+
+  if sudo mkdir -p $dirbuster_path; then
+    sudo tar -C $dirbuster_path -xvzf ./dirbuster.tar.gz "node-dirbuster-$dirbuster_version/lists" --strip-components=2
+    echo "extracted: dirbuster wordlists"
+  fi
+
+  rm ./dirbuster.tar.gz
+fi

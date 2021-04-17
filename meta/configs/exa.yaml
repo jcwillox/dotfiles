@@ -1,6 +1,6 @@
 - sudo:
     - shell:
-        - command: dpkg -i ./exa/exa_0.9.0_amd64.deb
+        - command: ./exa/install
           description: Installing "exa"
           stdout: true
 

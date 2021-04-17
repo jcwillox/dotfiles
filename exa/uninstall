@@ -1,9 +1,12 @@
 #!/usr/bin/env bash
 
 if [ "$(which exa)" ]; then
-    current_version=$(exa --version | grep -oE "[0-9\.]+")
+    current_version=$(exa --version | grep -oE "v[0-9\.]+")
     echo "exa: removing $current_version"
 
-    ROOT_FILE="/usr/local/bin/exa"
-    sudo rm "$ROOT_FILE" && echo "exa: removed $ROOT_FILE"
+    sudo rm "/usr/local/bin/exa" && echo "exa: removed /usr/local/bin/exa"
+    sudo rm "/usr/local/share/zsh/site-functions/_exa" && echo "exa: removed /usr/local/share/zsh/site-functions/_exa"
+    sudo rm "/etc/bash_completion.d/exa" && echo "exa: removed /etc/bash_completion.d/exa"
+    sudo rm "/usr/local/share/man/man1/exa.1" && echo "exa: removed /usr/local/share/man/man1/exa.1"
+    sudo rm "/usr/local/share/man/man5/exa_colors.5" && echo "exa: removed /usr/local/share/man/man5/exa_colors.5"
 fi

@@ -31,6 +31,10 @@ motd() {
   done
 }
 
+7zx() { 
+  7z x "$1" -o\* 
+}
+
 function base64d { echo -n "$1" | base64 -d }
 function base64e { echo -n "$1" | base64 }
 

@@ -1,2 +1,0 @@
-dashboard -layout assembly breakpoints !expressions history memory registers source stack !threads variables
-dashboard registers -style column-major 1

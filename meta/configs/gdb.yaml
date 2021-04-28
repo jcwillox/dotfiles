@@ -1,11 +1,24 @@
 - sudo:
     - apt: gdb
+    - link:
+        /usr/local/bin/pwngdb-client: scripts/pwngdb-client
+        /usr/local/bin/pwngdb-server: scripts/pwngdb-server
 
 - create:
     - ~/.gdbinit.d
 
 - link:
-    ~/.gdbinit.d/dashboard: gdb/gdbinit.d/dashboard
+    ~/.gdbinit.d/autoquit.py: gdb/gdbinit.d/autoquit.py
     ~/.gdbinit.d/init: gdb/gdbinit.d/init
-    ~/.gdbinit.d/useful: gdb/gdbinit.d/useful
     ~/.gdbinit: gdb/gdbinit
+    ~/.gef.rc: gdb/gef.rc
+
+- git:
+    ~/.gdbinit.d/gef:
+      url: https://github.com/hugsy/gef
+      description: "GDB GEF"
+      shallow: true
+    ~/.gdbinit.d/gef-extras:
+      url: https://github.com/hugsy/gef-extras
+      description: "GDB GEF Extras"
+      shallow: true

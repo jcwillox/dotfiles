@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+DIR=$(dirname "$0")
+
+sudo $DIR/install-venv pwncat -p git+https://github.com/calebstewart/pwncat.git --global
+sudo /opt/pwncat/bin/pip install -U git+https://github.com/calebstewart/paramiko
+sudo /opt/pwncat/bin/pip install -U git+https://github.com/JohnHammond/base64io-python

@@ -1,0 +1,135 @@
+#!/usr/bin/env python3
+
+import argparse
+import os
+import subprocess
+from os import path, makedirs, getcwd
+
+RED = "\x1b[31m"
+GREEN = "\x1b[32m"
+YELLOW = "\x1b[33m"
+BLUE = "\x1b[34m"
+MAGENTA = "\x1b[35m"
+CYAN = "\x1b[36m"
+WHITE = "\x1b[37m"
+RESET = "\x1b[0m"
+
+parser = argparse.ArgumentParser(
+    prog="install-venv",
+    description="simple python script to install python package into virtual environments and link their binaries",
+)
+parser.add_argument("app", help="the name of the app to install")
+parser.add_argument(
+    "-p",
+    "--package",
+    help="the package to install, assumed to be <app> if not specified",
+)
+parser.add_argument(
+    "-g",
+    "--global",
+    action="store_true",
+    dest="global_",
+    help="install package globally to /opt/<app> instead of the cwd/<app>",
+)
+parser.add_argument(
+    "--no-link",
+    "--nl",
+    action="store_true",
+    help="do not create link to the package binary in /usr/local/bin or cwd/<app>",
+)
+parser.add_argument(
+    "-b",
+    "--binary",
+    action="append",
+    help="binary names to link from the package, assumed to be <app> unless specified, can be specified multiple times",
+)
+
+
+def main():
+    args = parser.parse_args()
+
+    if not args.binary:
+        args.binary = [args.app]
+
+    if not args.package:
+        args.package = args.app
+
+    if args.global_:
+        base_path = "/opt"
+    else:
+        base_path = getcwd()
+
+    app_path = path.join(base_path, args.app)
+    pip_path = path.join(app_path, "bin", "pip")
+
+    print("app_path: " + RED + app_path + RESET)
+    print("pip_path: " + YELLOW + pip_path + RESET)
+    if not args.no_link:
+        print("binaries: " + CYAN + ", ".join(args.binary) + RESET)
+
+    print()
+
+    if input("continue with installation? [Y/n]: ") not in ("", "y", "Y"):
+        exit(0)
+
+    makedirs(app_path, exist_ok=True)
+
+    ### CREATE VIRTUAL ENVIRONMENT ###
+
+    try:
+        import virtualenv
+
+        print("creating: virtual environment using " + GREEN + "'virtualenv'" + RESET)
+        virtualenv.cli_run([app_path])
+    except ImportError:
+        try:
+            import venv
+
+            print("creating: virtual environment using " + GREEN + "'venv'" + RESET)
+            venv.main([app_path])
+            print("running:" + YELLOW, pip_path, "install", "wheel" + RESET)
+            subprocess.run(
+                [pip_path, "install", "wheel"], stdout=True, stderr=True, check=True
+            )
+        except ImportError:
+            print(
+                RED
+                + "error: either virtualenv or venv are required to create a virtual environment"
+                + RESET
+            )
+            exit(1)
+
+    print("running:" + YELLOW, pip_path, "install", "-U", args.package + RESET)
+
+    subprocess.run(
+        [pip_path, "install", "-U", args.package], stdout=True, stderr=True, check=True
+    )
+
+    ### CREATE LINKS ###
+
+    if not args.no_link:
+        for binary in args.binary:
+            target_path = path.join(app_path, "bin", binary)
+            if args.global_:
+                link_path = path.join("/usr/local/bin", binary)
+            else:
+                link_path = path.join(app_path, binary)
+            print(
+                "linking:",
+                GREEN + target_path + WHITE + " -> " + CYAN + link_path + RESET,
+            )
+            if path.islink(link_path):
+                link_dest = os.readlink(link_path)
+                if link_dest == target_path:
+                    continue
+            if path.exists(link_path):
+                print(RED + "error: file already exists " + link_path + RESET)
+                continue
+            os.symlink(target_path, link_path)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except KeyboardInterrupt:
+        print()

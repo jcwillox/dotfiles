@@ -21,6 +21,10 @@
           stdin: true
           stdout: true
 
+    - link:
+        /usr/local/bin/install-venv:
+          path: scripts/install-venv
+
 - link:
     ~/.local/bin/dotbot:
       path: install

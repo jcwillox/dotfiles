@@ -2,11 +2,11 @@
 
 if [ ! "$(which pip2)" ]; then
     echo "pip2: not installed"
-    curl -fsSLO https://bootstrap.pypa.io/get-pip.py
+    curl -fsSLO https://bootstrap.pypa.io/pip/2.7/get-pip.py
     sudo python2 ./get-pip.py
     rm ./get-pip.py
     pip2 -V
 else
-    current_version=$(pip2 --version | grep -oE " [0-9\.]+ ")
+    current_version=$(pip2 --version | grep -oE " [0-9\.]+ " | sed "s/ //")
     echo "pip2: found $current_version"
 fi

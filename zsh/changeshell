@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+USER=${SUDO_USER:-$USER}
+
 current_shell=$(getent passwd $USER | cut -d : -f 7)
 zsh_path=$(which zsh)
 

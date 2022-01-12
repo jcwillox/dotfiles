@@ -12,7 +12,7 @@ if [ ! "$(which $app)" ]; then
     current_version=0.0.0
     echo "$app: not installed"
 else
-    current_version=$($app --version | grep -oE "[0-9\.]+")
+    current_version=$($app --version | cut -d ' ' -f 2)
     echo "$app: found $current_version"
 fi
 

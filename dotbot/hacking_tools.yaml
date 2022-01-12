@@ -1,0 +1,62 @@
+- package:
+    - rlwrap
+    - ncat
+    - p7zip-full
+
+- install:
+    name: pwntools
+    url: https://github.com/Gallopsled/pwntools
+    then:
+      - shell:
+          command: pip3 install -U -qq pwntools=={{ .Version }}
+          sudo: true
+          shell: false
+      - download:
+          /usr/local/share/zsh/site-functions/_pwn:
+            name: "pwntools completions"
+            url: /raw/{{ .Version }}/extra/zsh_completion/_pwn
+
+- install:
+    name: gobuster
+    url: https://github.com/OJ/gobuster
+    then:
+      - download:
+          url: "/releases/download/v{{ .Version }}/gobuster-linux-amd64.7z"
+      - shell:
+          command: "7z e '{{ .Path }}' gobuster-linux-amd64/gobuster -o/usr/local/bin -aoa"
+          sudo: true
+          shell: false
+          stdout: false
+          stdin: false
+      - shell:
+          command: "chmod +x /usr/local/bin/gobuster"
+          sudo: true
+          shell: false
+
+- install:
+    name: dirbuster-wordlists
+    url: https://github.com/daviddias/node-dirbuster
+    version: '{{ "0.4.0" }}'
+    sudo: true
+    download:
+      url: /archive/v{{ .Version }}.tar.gz
+      extract:
+        "*/lists/*":
+          path: /usr/share/wordlists/dirbuster
+          strip: 2
+
+- create:
+    - /usr/share/enum
+    - /usr/share/webshells/php
+
+- download:
+    - /usr/share/enum:
+        url: https://raw.githubusercontent.com/sleventyeleven/linuxprivchecker/master/linuxprivchecker.py
+    - /usr/share/enum:
+        url: https://raw.githubusercontent.com/cervoise/linuxprivcheck/master/linuxprivchecker3.py
+    - /usr/share/webshells/php:
+        url: https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php
+
+- link:
+    ~/.config/zsh/kali.zsh:
+      source: zsh/kali.zsh

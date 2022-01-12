@@ -1,6 +1,0 @@
-- sudo:
-    - apt: python2
-    - shell:
-        - command: ./python2/install-pip
-          description: Installing "pip2"
-          stdout: true

@@ -1,7 +1,0 @@
-- sudo:
-    - apt: neofetch 
-
-- link: 
-    ~/.config/neofetch/config.conf: 
-      path: neofetch/config.conf
-      create: true

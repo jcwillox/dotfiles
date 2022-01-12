@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-if [ "$(which gobuster)" ]; then
-    echo "gobuster: removing"
-
-    ROOT_FILE="/usr/local/bin/gobuster"
-    sudo rm "$ROOT_FILE" && echo "gobuster: removed $ROOT_FILE"
-fi

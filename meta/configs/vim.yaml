@@ -1,7 +1,0 @@
-- sudo:
-    - apt: vim 
-
-- link: 
-    ~/.config/vim/vimrc: 
-      path: vim/vimrc
-      create: true

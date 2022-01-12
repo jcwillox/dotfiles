@@ -6,7 +6,7 @@ from os.path import expanduser
 
 root = expanduser("~/.gdbinit.d/")
 
-gdb.execute("source " + path.join(root, "gef/gef.py"))
+gdb.execute("source " + path.join(root, "gef.py"))
 
 for entry in scandir(root):
     if entry.is_file() and not entry.name.startswith("."):

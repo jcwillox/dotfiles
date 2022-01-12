@@ -1,0 +1,8 @@
+- install:
+    name: SecLists
+    url: "https://github.com/danielmiessler/SecLists"
+    then:
+      - git:
+          /usr/share/wordlists/seclists:
+            url: https://github.com/danielmiessler/SecLists
+            name: danielmiessler/seclists

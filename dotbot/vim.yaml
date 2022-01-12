@@ -1,0 +1,5 @@
+- package: vim
+
+- link:
+    ~/.config/vim/vimrc:
+      source: vim/vimrc

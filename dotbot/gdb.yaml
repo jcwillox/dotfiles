@@ -1,0 +1,27 @@
+- package: gdb
+
+- link:
+    /usr/local/bin/pwngdb-client: scripts/pwngdb-client
+    /usr/local/bin/pwngdb-server: scripts/pwngdb-server
+
+- create:
+    - ~/.gdbinit.d
+
+- link:
+    ~/.gdbinit.d/autoquit.py: gdb/gdbinit.d/autoquit.py
+    ~/.gdbinit.d/init: gdb/gdbinit.d/init
+    ~/.gdbinit: gdb/gdbinit
+    ~/.gef.rc: gdb/gef.rc
+
+- install:
+    name: GEF
+    url: https://github.com/hugsy/gef
+    download:
+      url: /raw/{{ .Version }}/gef.py
+      path: ~/.gdbinit.d/gef.py
+
+- git:
+    ~/.gdbinit.d/gef-extras:
+      name: GEF extras
+      url: https://github.com/hugsy/gef-extras
+      shallow: true

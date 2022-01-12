@@ -1,5 +1,0 @@
-- sudo:
-    - shell:
-        - command: ./gh/install
-          description: Installing "gh"
-          stdout: true

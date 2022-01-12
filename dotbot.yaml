@@ -1,0 +1,30 @@
+config:
+  - group: !include_dir_named "dotbot"
+
+profiles:
+  ubuntu: &ubuntu
+    - linux
+    - zsh
+    - exa
+    - bat
+    - neofetch
+    - vim
+  full: &full
+    - *ubuntu
+    - hacking_tools
+    - gdb
+  kali:
+    - *full
+    - python2
+  wsl:
+    - *full
+    - seclists
+    - wsl
+
+default_profile:
+  - full: '{{ env "CI" }}'
+  - wsl:  '{{ IsWSL }}'
+  - kali: '{{ MatchDistro "kali" }}'
+  - ubuntu
+
+strip_path: true

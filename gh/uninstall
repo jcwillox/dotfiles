@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [ "$(which gh)" ]; then
-    current_version=$(gh --version | grep -oP 'version \K[0-9.]+')
-    echo "gh: uninstalling $current_version"
-    sudo apt remove gh
-fi

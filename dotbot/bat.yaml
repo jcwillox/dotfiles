@@ -1,0 +1,8 @@
+- shell:
+    - command: ./sharkdp/install bat
+      desc: Installing "bat"
+      sudo: true
+
+- link:
+    ~/.config/bat/config:
+      source: sharkdp/bat.conf

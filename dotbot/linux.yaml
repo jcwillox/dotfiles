@@ -1,0 +1,15 @@
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
+
+- package:
+    - apt: progress
+    - apt: python3-pip
+      apk: py3-pip
+
+- link:
+    ~/.local/bin/install-venv:
+      source: scripts/install-venv
+    /usr/local/bin/install-venv:
+      source: scripts/install-venv

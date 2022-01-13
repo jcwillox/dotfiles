@@ -19,6 +19,7 @@ profiles:
   wsl:
     - *full
     - seclists
+    - gh
     - wsl
 
 default_profile:

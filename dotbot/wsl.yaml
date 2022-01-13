@@ -1,16 +1,7 @@
+- sharkdp:
+    - hyperfine
+    - fd
+
 - link:
     ~/.config/zsh/wsl.zsh:
       source: zsh/wsl.zsh
-
-- shell:
-    - command: ./sharkdp/install hyperfine
-      desc: Installing "hyperfine"
-      sudo: true
-
-    - command: ./sharkdp/install hexyl
-      desc: Installing "hexyl"
-      sudo: true
-
-    - command: ./sharkdp/install fd
-      desc: Installing "fd"
-      sudo: true

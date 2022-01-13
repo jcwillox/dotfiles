@@ -60,3 +60,5 @@
 - link:
     ~/.config/zsh/kali.zsh:
       source: zsh/kali.zsh
+
+- sharkdp: hexyl

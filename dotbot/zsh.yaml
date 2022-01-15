@@ -33,10 +33,12 @@
 
 - package: zsh
 
-- shell:
-    - command: 'zsh --version'
-      shell: false
-
-    - command: ./zsh/changeshell
-      desc: "Making zsh the default shell"
-      try_sudo: true
+- if:
+    condition:
+      - '{{ OnPath "chsh" }}'
+      - '{{ Which "zsh" | ne DefaultShell }}'
+    then:
+      shell:
+        desc: "Making zsh the default shell"
+        command: chsh -s {{ Which "zsh" }} ${SUDO_USER:-$USER}
+        try_sudo: true

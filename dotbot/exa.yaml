@@ -3,7 +3,7 @@
     url: https://github.com/ogham/exa
     sudo: true
     download:
-      url: "/releases/download/v{{ .Version }}/exa-linux-x86_64-v{{ .Version }}.zip"
+      url: '/releases/download/v{{ .Version }}/exa-linux-x86_64{{ if IsMusl }}-musl{{ end }}-v{{ .Version }}.zip'
       extract:
         - bin/exa: /usr/local/bin
         - completions/exa.zsh: /usr/local/share/zsh/site-functions#_exa

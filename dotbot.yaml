@@ -9,6 +9,8 @@ profiles:
     - bat
     - neofetch
     - vim
+    - dust
+    - sd
   full: &full
     - *ubuntu
     - hacking_tools
@@ -21,6 +23,7 @@ profiles:
     - seclists
     - gh
     - wsl
+    - task
 
 default_profile:
   - full: '{{ env "CI" }}'

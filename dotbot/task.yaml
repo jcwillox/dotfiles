@@ -1,0 +1,8 @@
+- install:
+    name: "go-task"
+    url: "https://github.com/go-task/task"
+    sudo: true
+    download:
+      url: /releases/download/v{{ .Version }}/task_linux_amd64.deb
+    shell:
+      command: dpkg -i {{.Path}}

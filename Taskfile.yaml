@@ -1,0 +1,16 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  docker:
+    desc: "Build & run docker container"
+    cmds:
+      - docker build -t dotfiles/test .
+      - docker run --rm -ti -v /etc/localtime:/etc/localtime:ro --name dotfiles-test dotfiles/test {{.CLI_ARGS}}
+
+  docker-full:
+    desc: "Build & run full docker container"
+    cmds:
+      - docker build -f Dockerfile.full -t dotfiles/full .
+      - docker run --rm -ti -v /etc/localtime:/etc/localtime:ro --name dotfiles-full dotfiles/full {{.CLI_ARGS}}

@@ -7,6 +7,12 @@ zle_highlight=('paste:none')
 export EDITOR="vim"
 export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+export LESS='-R --mouse --wheel-lines=3'
+export PAGER='less -F'
+
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$HOME/go/bin:$PATH"
+fi
 
 ############### ALIASES ###############
 alias zshconfig="vim ~/.zshrc"

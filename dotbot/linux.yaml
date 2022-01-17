@@ -15,3 +15,6 @@
       source: scripts/install-venv
     /usr/local/bin/install-venv:
       source: scripts/install-venv
+    ~/.gitconfig:
+      source: config/gitconfig
+      force: true

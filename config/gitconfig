@@ -1,0 +1,29 @@
+[user]
+	name = Josh Willox
+	email = joshwillox@gmail.com
+
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+
+[pull]
+    ff = only
+
+[core]
+	autocrlf = input
+	pager = delta
+
+[init]
+	defaultBranch = main
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+	line-numbers = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default

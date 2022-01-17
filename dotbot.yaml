@@ -11,6 +11,7 @@ profiles:
     - vim
     - dust
     - sd
+    - delta
   full: &full
     - *ubuntu
     - hacking_tools

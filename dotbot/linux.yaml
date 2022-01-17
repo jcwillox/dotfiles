@@ -2,6 +2,8 @@
     ~/:
     ~/.config:
       recursive: true
+    ~/.local/bin:
+    /usr/local/bin:
 
 - package:
     - apt: progress

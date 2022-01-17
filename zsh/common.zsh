@@ -13,6 +13,9 @@ alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
 alias servedir="python3 -m http.server -b 0.0.0.0 80"
 alias mkd=take
+alias x="chmod +x"
+alias ipy="ipython"
+alias dl="dotbot download"
 
 # colorize
 alias ip='ip --color=auto'
@@ -31,8 +34,8 @@ motd() {
   done
 }
 
-7zx() { 
-  7z x "$1" -o\* 
+7zx() {
+  7z x "$1" -o\*
 }
 
 function base64d { echo -n "$1" | base64 -d }

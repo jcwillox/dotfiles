@@ -58,6 +58,9 @@
         url: https://raw.githubusercontent.com/flozz/p0wny-shell/master/shell.php
 
 - link:
+    ~/.config/pwn.conf:
+      source: config/pwn.conf
+      force: true
     ~/.config/zsh/kali.zsh:
       source: zsh/kali.zsh
 

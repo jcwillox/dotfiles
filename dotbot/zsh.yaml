@@ -8,17 +8,28 @@
       url: https://github.com/zdharma-continuum/fast-syntax-highlighting
       name: zdharma-continuum/fast-syntax-highlighting
 
-    ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
-      url: https://github.com/zsh-users/zsh-autosuggestions
-      name: zsh-users/zsh-autosuggestions
-
     ~/.oh-my-zsh/custom/plugins/zsh-z:
       url: https://github.com/agkozak/zsh-z
       name: agkozak/zsh-z
 
-    ~/.oh-my-zsh/custom/themes/powerlevel10k:
-      url: https://github.com/romkatv/powerlevel10k
-      name: romkatv/powerlevel10k
+- install:
+    name: zsh-autosuggestions
+    url: https://github.com/zsh-users/zsh-autosuggestions/tags
+    version: "/tags/v([\\d.]+)\\.tar\\.gz"
+    then:
+      git:
+        ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
+          url: https://github.com/zsh-users/zsh-autosuggestions
+          name: zsh-users/zsh-autosuggestions
+
+- install:
+    name: powerlevel10k
+    url: https://github.com/romkatv/powerlevel10k
+    then:
+      git:
+        ~/.oh-my-zsh/custom/themes/powerlevel10k:
+          url: https://github.com/romkatv/powerlevel10k
+          name: romkatv/powerlevel10k
 
 - link:
     ~/.zshrc:

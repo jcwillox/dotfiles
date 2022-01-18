@@ -1,4 +1,6 @@
 ############### ALIASES ###############
+alias nth="nth --accessible"
+
 # HTB
 alias htbstart="openvpn ~/.config/htb.ovpn"
 

@@ -29,6 +29,11 @@ alias ip='ip --color=auto'
 # optional
 alias dps="docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'"
 
+if (( $+commands[dpkg] )); then
+  alias dia="sudo dpkg -i ./*.deb"
+  alias di="sudo dpkg -i"
+fi
+
 ############### KEYBINDS ###############
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line
@@ -43,9 +48,6 @@ motd() {
 7zx() {
   7z x "$1" -o\*
 }
-
-function base64d { echo -n "$1" | base64 -d }
-function base64e { echo -n "$1" | base64 }
 
 ############### MODULES ###############
 source $ZSH/oh-my-zsh.sh

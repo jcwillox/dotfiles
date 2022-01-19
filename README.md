@@ -2,9 +2,11 @@
 
 My personal dotfiles repo, powered by [dotbot](https://github.com/jcwillox/dotbot).
 
+[![asciicast](https://asciinema.org/a/462686.svg)](https://asciinema.org/a/462686)
+
 ## Install
 
-This will install dotbot into your `~/.local/bin` then clone and run the default profile
+This will install dotbot into `~/.local/bin` then clone this repo and run the default profile.
 
 ```bash
 sh -c "$(curl -fsSL tinyurl.com/dotbot)" -- init --apply jcwillox
@@ -21,8 +23,8 @@ docker run --rm -ti -e TZ=Australia/Sydney --name dotfiles ghcr.io/jcwillox/dotf
 You can also build/run the test docker container using:
 
 ```bash
-# run
-./docker-test
-# build & run
-./docker-test build
+# build & run dev container
+task docker
+# build & run full container
+task docker-full
 ```

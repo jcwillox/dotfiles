@@ -1,4 +1,7 @@
-- sharkdp: bat
+- system:
+    os: linux
+    then:
+      - sharkdp: bat
 
 - link:
     ~/.config/bat/config:

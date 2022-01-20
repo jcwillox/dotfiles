@@ -2,6 +2,10 @@ config:
   - group: !include_dir_named "dotbot"
 
 profiles:
+  windows:
+    - bat
+    - neofetch
+    - vim
   ubuntu: &ubuntu
     - linux
     - zsh
@@ -27,6 +31,7 @@ profiles:
     - task
 
 default_profile:
+  - windows: '{{ eq OS "windows" }}'
   - full: '{{ env "CI" }}'
   - wsl:  '{{ IsWSL }}'
   - kali: '{{ MatchDistro "kali" }}'

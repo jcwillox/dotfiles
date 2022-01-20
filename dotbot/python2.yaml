@@ -1,4 +1,5 @@
 - package: python2
+
 - shell:
     command: ./scripts/install-pip
     desc: Installing "pip2"

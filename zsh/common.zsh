@@ -7,11 +7,15 @@ zle_highlight=('paste:none')
 export EDITOR="vim"
 export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-export LESS='-R --mouse --wheel-lines=3'
+export LESS='-R'
 export PAGER='less -F'
 
 if [ -d "$HOME/go/bin" ] ; then
-    PATH="$HOME/go/bin:$PATH"
+  export PATH="$HOME/go/bin:$PATH"
+fi
+
+if [[ -v LC_COLORTERM ]]; then
+  export COLORTERM=$LC_COLORTERM
 fi
 
 ############### ALIASES ###############
@@ -27,7 +31,7 @@ alias dl="dotbot download"
 alias ip='ip --color=auto'
 
 # optional
-alias dps="docker ps -a --format 'table {{.Names}}\t{{.Image}}\t{{.Status}}'"
+alias dps="docker ps -a --format 'table $(printf '\e[92m'){{.Names}}\t$(printf '\e[93m'){{.Image}}\t$(printf '\e[95m'){{.Status}}$(printf '\033[0m')'"
 
 if (( $+commands[dpkg] )); then
   alias dia="sudo dpkg -i ./*.deb"

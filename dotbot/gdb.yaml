@@ -19,6 +19,7 @@
     download:
       url: /raw/{{ .Version }}/gef.py
       path: ~/.gdbinit.d/gef.py
+      force: true
 
 - git:
     ~/.gdbinit.d/gef-extras:

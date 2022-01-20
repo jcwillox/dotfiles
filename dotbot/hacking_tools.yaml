@@ -15,22 +15,22 @@
           /usr/local/share/zsh/site-functions/_pwn:
             name: "pwntools completions"
             url: /raw/{{ .Version }}/extra/zsh_completion/_pwn
+            force: true
 
 - install:
     name: gobuster
     url: https://github.com/OJ/gobuster
+    sudo: true
     then:
       - download:
           url: "/releases/download/v{{ .Version }}/gobuster-linux-amd64.7z"
       - shell:
           command: "7z e '{{ .Path }}' gobuster-linux-amd64/gobuster -o/usr/local/bin -aoa"
-          sudo: true
           shell: false
           stdout: false
           stdin: false
       - shell:
           command: "chmod +x /usr/local/bin/gobuster"
-          sudo: true
           shell: false
 
 - install:

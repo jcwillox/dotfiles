@@ -8,9 +8,10 @@
     url: https://github.com/Gallopsled/pwntools
     then:
       - shell:
-          command: pip3 install -U -qq pwntools=={{ .Version }}
+          command: pip3 install --disable-pip-version-check pwntools=={{ .Version }}
           sudo: true
           shell: false
+          max_lines: 10
       - download:
           /usr/local/share/zsh/site-functions/_pwn:
             name: "pwntools completions"

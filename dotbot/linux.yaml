@@ -17,4 +17,4 @@
       source: scripts/install-venv
     ~/.gitconfig:
       source: config/gitconfig
-      force: true
+      safe_force: true

@@ -34,7 +34,7 @@
 - link:
     ~/.zshrc:
       source: zsh/zshrc
-      force: true
+      safe_force: true
     ~/.config/zsh/common.zsh:
       source: zsh/common.zsh
     ~/.config/p10k/rainbow.zsh:

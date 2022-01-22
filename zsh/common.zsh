@@ -18,6 +18,10 @@ if [[ -v LC_COLORTERM ]]; then
   export COLORTERM=$LC_COLORTERM
 fi
 
+if [[ -v WT_SESSION ]]; then
+  export COLORTERM="truecolor"
+fi
+
 ############### ALIASES ###############
 alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
@@ -51,6 +55,10 @@ motd() {
 
 7zx() {
   7z x "$1" -o\*
+}
+
+vimw() {
+  vim $(which "$1")
 }
 
 ############### MODULES ###############

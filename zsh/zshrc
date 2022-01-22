@@ -10,6 +10,7 @@ plugins=(
   pip
   sudo
   dirhistory
+  dirpersist
   httpie
   urltools
   encode64
@@ -37,3 +38,5 @@ fi
 for file in ~/.config/zsh/*; do
   source "$file"
 done
+
+cd - > /dev/null

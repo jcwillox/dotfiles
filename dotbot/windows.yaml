@@ -1,0 +1,13 @@
+- clean:
+    ~/:
+    ~/.config:
+      recursive: true
+
+- download:
+    ~/.local/bin:
+      url: https://gist.github.com/jcwillox/a9b480f8d180d44368e7df2eb7009207/raw/toolbox-context-menu.ps1
+
+- link:
+    ~/.gitconfig:
+      source: config/gitconfig
+      safe_force: true

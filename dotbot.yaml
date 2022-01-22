@@ -3,6 +3,7 @@ config:
 
 profiles:
   windows:
+    - windows
     - bat
     - neofetch
     - vim

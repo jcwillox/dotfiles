@@ -5,4 +5,4 @@
 
 - link:
     ~/.config/bat/config:
-      source: sharkdp/bat.conf
+      source: config/bat.conf

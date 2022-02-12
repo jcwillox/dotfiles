@@ -21,6 +21,7 @@ plugins=(
   copydir
   copyfile
   command-not-found
+  history-substring-search
 )
 
 if (( $+commands[go] )); then

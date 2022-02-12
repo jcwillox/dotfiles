@@ -11,3 +11,21 @@
     ~/.gitconfig:
       source: config/gitconfig
       safe_force: true
+
+- link:
+    ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1:
+      source: pwsh/pwshrc.ps1
+      safe_force: true
+    ~/Documents/PowerShell/Microsoft.VSCode_profile.ps1:
+      source: pwsh/vscoderc.ps1
+      safe_force: true
+
+- link:
+    ~/.config/pwsh/Aliases.ps1:
+      source: pwsh/Aliases.ps1
+    ~/.config/pwsh/Common.ps1:
+      source: pwsh/Common.ps1
+    ~/.config/pwsh/KeyHandlers.ps1:
+      source: pwsh/KeyHandlers.ps1
+    ~/.config/pwsh/Python.ps1:
+      source: pwsh/Python.ps1

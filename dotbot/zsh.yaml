@@ -44,9 +44,13 @@
 
 - package: zsh
 
+# for non-root zsh install use
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/romkatv/zsh-bin/master/install)"
+
 - if:
     condition:
       - '{{ OnPath "chsh" }}'
+      - '{{ "" | ne DefaultShell }}'
       - '{{ Which "zsh" | ne DefaultShell }}'
     then:
       shell:

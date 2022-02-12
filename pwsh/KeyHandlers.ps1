@@ -1,8 +1,8 @@
 ############### KEYBINDS ###############
 Set-PSReadLineOption -BellStyle None
-Set-PSReadlineKeyHandler -Chord Tab -Function MenuComplete
 Set-PSReadLineOption -PredictionSource History
 
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 Set-PSReadlineKeyHandler -Key 'UpArrow' -Function HistorySearchBackward
 Set-PSReadlineKeyHandler -Key 'DownArrow' -Function HistorySearchForward
 
@@ -12,18 +12,6 @@ Set-PSReadlineKeyHandler -Chord 'Alt+w' -BriefDescription SaveInHistory -Descrip
 	[Microsoft.PowerShell.PSConsoleReadLine]::AddToHistory($line)
 	[Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
 }
-
-# Set-PSReadlineKeyHandler -Chord 'RightArrow' -BriefDescription AutocompleteHistory -Description "Autocomplete current line from history" -ScriptBlock {
-# 	$line = $null
-# 	$cursor = $null
-# 	[Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$cursor)
-# 	if ($line.Split("`n")[0].Length -eq $cursor) {
-# 		[Microsoft.PowerShell.PSConsoleReadLine]::HistorySearchBackward()
-# 		[Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
-# 	} else {
-# 		[Microsoft.PowerShell.PSConsoleReadLine]::ForwardChar()
-# 	}
-# }
 
 Set-PSReadlineKeyHandler -Chord 'Alt+r' -BriefDescription ResolveAliases -LongDescription "Replace all aliases with the full command" -ScriptBlock {
     $tokens = $null
@@ -63,21 +51,3 @@ Set-PSReadlineKeyHandler -Chord 'Ctrl+Alt+M' -BriefDescription MeasureCommand -D
 	[Microsoft.PowerShell.PSConsoleReadLine]::EndOfLine()
 	[Microsoft.PowerShell.PSConsoleReadLine]::Insert("}")
 }
-
-# Set-PSReadlineKeyHandler -Key "Escape" -BriefDescription MeasureCommand -Description "sudo command" -ScriptBlock {
-# 	$now = Get-Date
-#     if ($global:KEY_LAST_ESCAPE -and ($now - $global:KEY_LAST_ESCAPE).TotalMilliseconds -lt 300) {
-#         $line = $null
-#         [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$null)
-#         if (-not $line) {
-#             [Microsoft.PowerShell.PSConsoleReadLine]::PreviousHistory()
-#             [Microsoft.PowerShell.PSConsoleReadLine]::GetBufferState([ref]$line, [ref]$null)
-#         }
-#         if ($line -and -not $line.StartsWith("sudo ")) {
-#             [Microsoft.PowerShell.PSConsoleReadLine]::RevertLine()
-#             [Microsoft.PowerShell.PSConsoleReadLine]::Insert("sudo $line")
-#         }
-#     } else {
-#         $global:KEY_LAST_ESCAPE = $now
-#     }
-# }

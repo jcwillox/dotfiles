@@ -18,7 +18,7 @@ plugins=(
   python
   isodate
   copybuffer
-  copydir
+  copypath
   copyfile
   command-not-found
   history-substring-search

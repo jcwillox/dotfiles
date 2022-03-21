@@ -40,4 +40,6 @@ for file in ~/.config/zsh/*; do
   source "$file"
 done
 
-cd - > /dev/null
+if [ "$TERM_PROGRAM" != "vscode" ]; then
+  cd - > /dev/null
+fi

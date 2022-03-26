@@ -1,0 +1,18 @@
+- install:
+    name: golang
+    url: https://go.dev/dl
+    version: "go([\\d.]+)\\.linux-"
+    try_sudo: true
+    download:
+      url: /go{{ .Version }}.linux-{{ ARCH }}.tar.gz
+      extract:
+        "**/*":
+          path: "{{ Local }}/share/go"
+          replace: true
+          strip: 1
+    then:
+      - link:
+          "{{ Local }}/bin/go":
+            source: "{{ Local }}/share/go/bin/go"
+          "{{ Local }}/bin/gofmt":
+            source: "{{ Local }}/share/go/bin/gofmt"

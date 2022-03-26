@@ -29,6 +29,7 @@ profiles:
     - seclists
     - gh
     - wsl
+    - golang
     - task
 
 default_profile:

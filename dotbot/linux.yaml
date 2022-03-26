@@ -18,3 +18,7 @@
     ~/.gitconfig:
       source: config/gitconfig
       safe_force: true
+
+- create:
+    ~/.ssh:
+      mode: 700

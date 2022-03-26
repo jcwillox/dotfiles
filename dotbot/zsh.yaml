@@ -14,22 +14,28 @@
 
 - install:
     name: zsh-autosuggestions
-    url: https://github.com/zsh-users/zsh-autosuggestions/tags
-    version: "/tags/v([\\d.]+)\\.tar\\.gz"
-    then:
-      git:
-        ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions:
-          url: https://github.com/zsh-users/zsh-autosuggestions
-          name: zsh-users/zsh-autosuggestions
+    url: https://github.com/zsh-users/zsh-autosuggestions
+    version:
+      url: /tags
+      regex: "/tags/v([\\d.]+)\\.tar\\.gz"
+    download:
+      url: /archive/v{{ .Version }}.tar.gz
+      extract:
+        "**/*":
+          path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+          replace: true
+          strip: 1
 
 - install:
     name: powerlevel10k
     url: https://github.com/romkatv/powerlevel10k
-    then:
-      git:
-        ~/.oh-my-zsh/custom/themes/powerlevel10k:
-          url: https://github.com/romkatv/powerlevel10k
-          name: romkatv/powerlevel10k
+    download:
+      url: /archive/v{{ .Version }}.tar.gz
+      extract:
+        "**/*":
+          path: ~/.oh-my-zsh/custom/themes/powerlevel10k
+          replace: true
+          strip: 1
 
 - link:
     ~/.zshrc:

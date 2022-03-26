@@ -2,6 +2,29 @@
     - hyperfine
     - fd
 
+- shell:
+    command: tr -d '\r\n' <<< $(wslpath $(/mnt/c/Windows/System32/cmd.exe /c echo %USERPROFILE% 2>/dev/null))
+    capture: true
+    stdout: false
+    desc: false
+
+- vars:
+    UserProfile: "{{.Stdout}}"
+
 - link:
     ~/.config/zsh/wsl.zsh:
       source: zsh/wsl.zsh
+    /usr/local/bin/cmd.exe:
+      source: /mnt/c/Windows/System32/cmd.exe
+    /usr/local/bin/clip.exe:
+      source: /mnt/c/Windows/System32/clip.exe
+    /usr/local/bin/pwsh.exe:
+      source: "{{.UserProfile}}/scoop/apps/pwsh/current/pwsh.exe"
+    /usr/local/bin/powershell.exe:
+      source: /mnt/c/Windows/System32/WindowsPowerShell/v1.0/powershell.exe
+    /usr/local/bin/npiperelay.exe:
+      source: "{{.UserProfile}}/scoop/apps/npiperelay/current/npiperelay.exe"
+    /usr/local/bin/code:
+      source: "{{.UserProfile}}/AppData/Local/Programs/Microsoft VS Code/bin/code"
+    /usr/local/bin/wt.exe:
+      source: "{{.UserProfile}}/AppData/Local/Microsoft/WindowsApps/wt.exe"

@@ -6,8 +6,3 @@
       url: /releases/download/v{{ .Version }}/task_linux_amd64.deb
     shell:
       command: dpkg -i {{.Path}}
-    then:
-      download:
-        /usr/local/share/zsh/site-functions:
-          url: /raw/master/completion/zsh/_task
-          force: true

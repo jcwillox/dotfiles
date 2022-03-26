@@ -1,15 +1,25 @@
-- install:
-    name: "exa"
-    url: https://github.com/ogham/exa
-    sudo: true
-    download:
-      url: '/releases/download/v{{ .Version }}/exa-linux-x86_64{{ if IsMusl }}-musl{{ end }}-v{{ .Version }}.zip'
-      extract:
-        - bin/exa: /usr/local/bin
-        - completions/exa.zsh: /usr/local/share/zsh/site-functions#_exa
-        - completions/exa.bash: /etc/bash_completion.d#exa
-        - man/exa.1: /usr/local/share/man/man1
-        - man/exa_colors.5: /usr/local/share/man/man5
+- system:
+    arch: amd64
+    then:
+    - install:
+        name: "exa"
+        url: https://github.com/ogham/exa
+        try_sudo: true
+        then:
+          - download:
+              url: '/releases/download/v{{ .Version }}/exa-linux-x86_64{{ if IsMusl }}-musl{{ end }}-v{{ .Version }}.zip'
+          - extract:
+              "{{.Path}}":
+                - bin/exa: "{{ Local }}/bin"
+                - completions/exa.zsh: "{{ Local }}/share/zsh/site-functions/#/_exa"
+                - man/exa.1: "{{ Local }}/share/man/man1"
+                - man/exa_colors.5: "{{ Local }}/share/man/man5"
+          - system:
+              is_root: true
+              then:
+              - extract:
+                  "{{.Path}}":
+                    - completions/exa.bash: /etc/bash_completion.d/#/exa
 
 - link:
     ~/.config/zsh/exa.zsh:

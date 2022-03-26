@@ -1,8 +1,9 @@
 - install:
     name: "sd"
     url: "https://github.com/chmln/sd"
+    try_sudo: true
     download:
       url: "/releases/download/v{{ .Version }}/sd-v{{ .Version }}-x86_64-unknown-linux-{{ LIBC }}"
-      path: "{{ if CanSudo }}/usr/local/bin{{ else }}~/.local/bin{{ end }}/sd"
+      path: "{{ Local }}/sd"
       mode: +x
       force: true

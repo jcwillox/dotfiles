@@ -1,10 +1,13 @@
-- install:
-    name: "dust"
-    url: "https://github.com/bootandy/dust"
-    sudo: true
-    download:
-      url: "/releases/download/v{{ .Version }}/dust-v{{ .Version }}-x86_64-unknown-linux-{{ LIBC }}.tar.gz"
-      extract:
-        "*/dust":
-          path: /usr/local/bin
-          strip: 1
+- system:
+    arch: amd64
+    then:
+    - install:
+        name: "dust"
+        url: "https://github.com/bootandy/dust"
+        try_sudo: true
+        download:
+          url: "/releases/download/v{{ .Version }}/dust-v{{ .Version }}-x86_64-unknown-linux-{{ LIBC }}.tar.gz"
+          extract:
+            "*/dust":
+              path: "{{Local}}/bin"
+              strip: 1

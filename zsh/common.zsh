@@ -4,6 +4,9 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 DISABLE_MAGIC_FUNCTIONS=true
 zle_highlight=('paste:none')
 
+# include local completions
+fpath=("$HOME/.local/share/zsh/site-functions" $fpath)
+
 export EDITOR="vim"
 export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"

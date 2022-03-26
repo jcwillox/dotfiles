@@ -1,4 +1,4 @@
-FROM python:buster
+FROM python:bullseye
 
 ENV USER test
 ENV TERM xterm-256color

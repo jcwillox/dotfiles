@@ -1,4 +1,4 @@
-FROM python:buster
+FROM python:bullseye
 
 LABEL org.opencontainers.image.source=https://github.com/jcwillox/dotfiles
 

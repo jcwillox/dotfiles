@@ -21,18 +21,12 @@
 - install:
     name: gobuster
     url: https://github.com/OJ/gobuster
-    sudo: true
-    then:
-      - download:
-          url: "/releases/download/v{{ .Version }}/gobuster-linux-amd64.7z"
-      - shell:
-          command: "7z e '{{ .Path }}' gobuster-linux-amd64/gobuster -o/usr/local/bin -aoa"
-          shell: false
-          stdout: false
-          stdin: false
-      - shell:
-          command: "chmod +x /usr/local/bin/gobuster"
-          shell: false
+    try_sudo: true
+    download:
+      url: "/releases/download/v{{ .Version }}/gobuster_{{ .Version }}_Linux_x86_64.tar.gz"
+      extract:
+        "gobuster":
+          path: "{{ Local }}/bin"
 
 - install:
     name: dirbuster-wordlists

@@ -3,6 +3,7 @@ New-Alias df Get-Volume -Force
 New-Alias which Get-Command -Force
 New-Alias nf nfetch -Force
 New-Alias ll zeta -Force
+New-Alias ipy ipython -Force
 
 Remove-Alias "ls" -ErrorAction Ignore
 New-FunctionAlias "ls" "zeta -w"
@@ -47,3 +48,18 @@ New-WslAlias "exa"
 New-WslAlias "base64"
 New-WslAlias "tar"
 New-WslAlias "exa-la" "exa --long --icons --group-directories-first --git --all"
+
+# docker
+New-FunctionAlias "dc" "docker-compose"
+New-FunctionAlias "dcb" "docker-compose build"
+New-FunctionAlias "dcl" "docker-compose logs"
+New-FunctionAlias "dclf" "docker-compose logs -f"
+New-FunctionAlias "dcup" "docker-compose up"
+New-FunctionAlias "dcupb" "docker-compose up --build"
+New-FunctionAlias "dcupd" "docker-compose up -d"
+New-FunctionAlias "dcdn" "docker-compose down"
+
+# go
+New-FunctionAlias "gob" "go build"
+New-FunctionAlias "gor" "go run ."
+New-FunctionAlias "gobr" "go build && go run ."

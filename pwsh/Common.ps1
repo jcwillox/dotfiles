@@ -1,5 +1,6 @@
 ############### ENVIRONMENT ###############
 $env:BAT_CONFIG_PATH = "$HOME\.config\bat\config"
+$env:COOKIECUTTER_CONFIG = "$HOME\.config\cookiecutter\config.yaml"
 $env:LESSHISTFILE = "$HOME\.less_history"
 $env:VIMINIT = "source ~/.config/vim/vimrc"
 $env:BAT_PAGER = "less -F"
@@ -24,6 +25,9 @@ Import-Module SearchWeb -Force
 
 if ($env:TERM_PROGRAM -eq "vscode" -or $env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
 	. "~/.config/p10k/robbyrussell.ps1"
+	if ($env:TERM_PROGRAM -eq "vscode") {
+		. "$(code --locate-shell-integration-path pwsh)"
+	}
 } else {
 	. "~/.config/p10k/rainbow.ps1"
 }
@@ -129,4 +133,39 @@ function EscapeAnsiString {
 	}
 
 	return $output
+}
+
+# support bubble-up search for taskfile config
+function Find-Taskfile {
+    # find task config
+    $path = (Get-Location).Path
+    while ($path) {
+        $taskPath = Join-Path $path Taskfile.yaml
+        if (Test-Path $taskPath) {
+            return $taskPath
+        }
+        $path = Split-Path $path
+    }
+}
+
+function task {
+    if (Test-Path Taskfile.yaml) {
+        task.ps1 @args
+    } else {
+        $path = Find-Taskfile
+        if (-not $path) {
+            task.ps1 @args
+        } else {
+            # Write-Output "from: $(Resolve-Path -Relative $path)"
+            task.ps1 --taskfile $path @args
+        }
+    }
+}
+
+function nu {
+	if (Test-Path .nvmrc) {
+		nvm use (Get-Content .nvmrc)
+	} else {
+		Write-Host "No .nvmrc file found" -ForegroundColor Red
+	}
 }

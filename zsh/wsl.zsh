@@ -4,12 +4,12 @@ function o {
 
 function idea {
     powershell.exe -noprofile -ex unrestricted -c \
-        "& \$env:LOCALAPPDATA/JetBrains/Toolbox/apps/IDEA-U/ch-0/*/bin/idea64.exe ${1:-.} ${@:2}"
+        "& \"\$env:LOCALAPPDATA/Programs/IntelliJ IDEA Ultimate/bin/idea64.exe\" ${1:-.} ${@:2}"
 }
 
 function pycharm {
     powershell.exe -noprofile -ex unrestricted -c \
-        "& \$env:LOCALAPPDATA/JetBrains/Toolbox/apps/PyCharm-P/ch-0/*/bin/pycharm64.exe ${1:-.} ${@:2}"
+        "& \"\$env:LOCALAPPDATA/Programs/PyCharm Professional/bin/pycharm64.exe\" ${1:-.} ${@:2}"
 }
 
 # forward ssh-agent from windows

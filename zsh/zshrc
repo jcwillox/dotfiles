@@ -5,7 +5,7 @@ plugins=(
   git
   fast-syntax-highlighting
   zsh-autosuggestions
-  zsh-z
+  z
   docker-compose
   pip
   sudo
@@ -22,6 +22,10 @@ plugins=(
   copyfile
   command-not-found
   history-substring-search
+  nvm
+  aliases
+  extract
+  nmap
 )
 
 if (( $+commands[go] )); then
@@ -32,6 +36,10 @@ if (( $+commands[apt] )); then
   plugins+=("ubuntu")
 fi
 
+if (( $+commands[nmap] )); then
+  plugins+=("nmap")
+fi
+
 if [ -f ~/.config/zsh/kali.zsh ]; then
   plugins+=("web-search")
 fi
@@ -40,6 +48,18 @@ for file in ~/.config/zsh/*; do
   source "$file"
 done
 
-if [ "$TERM_PROGRAM" != "vscode" ]; then
+if [ "$TERM_PROGRAM" != "vscode" ] &&
+   [ "$TERM_PROGRAM" != "Jetbrains.Fleet" ] &&
+   [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
   cd - > /dev/null
+fi
+
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
+if [[ -f ~/.config/tabtab/zsh/__tabtab.zsh ]]; then
+  source ~/.config/tabtab/zsh/__tabtab.zsh
 fi

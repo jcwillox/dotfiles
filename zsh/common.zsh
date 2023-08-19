@@ -67,7 +67,9 @@ vimw() {
 ############### MODULES ###############
 source $ZSH/oh-my-zsh.sh
 
-if [ "$TERM_PROGRAM" = "vscode" ]; then
+if [ "$TERM_PROGRAM" = "vscode" ] ||
+   [ "$TERM_PROGRAM" = "Jetbrains.Fleet" ] ||
+   [ "$TERMINAL_EMULATOR" = "JetBrains-JediTerm" ]; then
   source ~/.config/p10k/robbyrussell.zsh
 elif [ "$ZSH_NO_THEME" != "true" ]; then
   source ~/.config/p10k/rainbow.zsh

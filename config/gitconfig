@@ -1,16 +1,18 @@
 [user]
 	name = Josh Willox
 	email = joshwillox@gmail.com
-
-[credential "https://github.com"]
-	helper = !gh auth git-credential
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBrz4+lYYE6BJKB5YG0vKSUcA2Tv2rYvMuUobA0UY74X
 
 [pull]
     ff = only
 
+[push]
+	autoSetupRemote = true
+
 [core]
 	autocrlf = input
 	pager = delta
+	ignorecase = false
 
 [init]
 	defaultBranch = main
@@ -27,3 +29,15 @@
 
 [diff]
     colorMoved = default
+
+[credential "https://github.com"]
+	helper =
+	helper = !gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !gh auth git-credential
+
+[include]
+  path = ~/.config/git/local.gitconfig
+[include]
+  path = ~/.config/git/windows.gitconfig

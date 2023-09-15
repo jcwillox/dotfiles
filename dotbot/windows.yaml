@@ -11,6 +11,9 @@
     ~/.gitconfig:
       source: config/gitconfig
       safe_force: true
+    ~/.config/git/windows.gitconfig:
+      source: config/gitconfig-windows
+      safe_force: true
 
 - link:
     ~/Documents/PowerShell/Microsoft.PowerShell_profile.ps1:

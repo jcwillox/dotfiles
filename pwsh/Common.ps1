@@ -23,7 +23,7 @@ Import-Module FunctionalAliases -Force
 Import-Module powershell10k -Force
 Import-Module SearchWeb -Force
 
-if ($env:TERM_PROGRAM -eq "vscode" -or $env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
+if ($env:TERM_PROGRAM -eq "vscode" -or $env:TERM_PROGRAM -eq "Jetbrains.Fleet" -or $env:TERMINAL_EMULATOR -eq "JetBrains-JediTerm") {
 	. "~/.config/p10k/robbyrussell.ps1"
 	if ($env:TERM_PROGRAM -eq "vscode") {
 		. "$(code --locate-shell-integration-path pwsh)"

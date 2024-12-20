@@ -2,16 +2,12 @@
     - rlwrap
     - ncat
     - p7zip-full
+    - python3-pwntools
 
 - install:
     name: pwntools
     url: https://github.com/Gallopsled/pwntools
     then:
-      - shell:
-          command: pip3 install --disable-pip-version-check pwntools=={{ .Version }}
-          sudo: true
-          shell: false
-          max_lines: 10
       - download:
           /usr/local/share/zsh/site-functions/_pwn:
             name: "pwntools completions"

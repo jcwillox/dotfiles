@@ -17,6 +17,11 @@ if [ -d "$HOME/go/bin" ] ; then
   export PATH="$HOME/go/bin:$PATH"
 fi
 
+if [ -d "$HOME/.bun" ] ; then
+  export BUN_INSTALL="$HOME/.bun"
+  export PATH="$BUN_INSTALL/bin:$PATH"
+fi
+
 if [[ -v LC_COLORTERM ]]; then
   export COLORTERM=$LC_COLORTERM
 fi

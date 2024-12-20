@@ -26,6 +26,9 @@ plugins=(
   aliases
   extract
   nmap
+  bun
+  uv
+  catimg
 )
 
 if (( $+commands[go] )); then

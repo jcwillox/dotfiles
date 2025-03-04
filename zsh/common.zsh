@@ -50,6 +50,16 @@ if (( $+commands[dpkg] )); then
   alias di="sudo dpkg -i"
 fi
 
+if (( $+commands[eza] )); then
+  alias ls="eza --grid --icons --group-directories-first"
+  alias ll="eza --long --icons --group-directories-first --git"
+  alias la="ll --all"
+elif (( $+commands[exa] )); then
+  alias ls="exa --grid --icons --group-directories-first"
+  alias ll="exa --long --icons --group-directories-first --git"
+  alias la="ll --all"
+fi
+
 ############### KEYBINDS ###############
 bindkey "^[[1~" beginning-of-line
 bindkey "^[[4~" end-of-line

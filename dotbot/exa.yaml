@@ -20,7 +20,3 @@
               - extract:
                   "{{.Path}}":
                     - completions/exa.bash: /etc/bash_completion.d/#/exa
-
-- link:
-    ~/.config/zsh/exa.zsh:
-      source: exa/aliases.zsh

@@ -1,5 +1,6 @@
 - system:
     arch: amd64
+    os: linux
     then:
     - install:
         name: "dust"
@@ -11,3 +12,9 @@
             "*/dust":
               path: "{{Local}}/bin"
               strip: 1
+
+- system:
+    os: darwin
+    then:
+      - package:
+          - brew: dust

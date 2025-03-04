@@ -1,5 +1,6 @@
 - system:
     arch: amd64
+    os: linux
     then:
     - install:
         name: "exa"
@@ -20,3 +21,9 @@
               - extract:
                   "{{.Path}}":
                     - completions/exa.bash: /etc/bash_completion.d/#/exa
+
+- system:
+    os: darwin
+    then:
+      - package:
+          - brew: eza

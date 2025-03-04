@@ -1,5 +1,6 @@
 - system:
     arch: amd64
+    os: linux
     then:
     - install:
         name: "delta"
@@ -11,3 +12,9 @@
             "*/delta":
               path: "{{Local}}/bin"
               strip: 1
+
+- system:
+    os: darwin
+    then:
+      - package:
+          - brew: git-delta

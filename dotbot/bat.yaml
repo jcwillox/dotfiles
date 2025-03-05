@@ -3,6 +3,12 @@
     then:
       - sharkdp: bat
 
+- system:
+    os: darwin
+    then:
+      - package:
+          - brew: bat
+
 - link:
     ~/.config/bat/config:
       source: config/bat.conf

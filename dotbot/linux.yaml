@@ -7,6 +7,7 @@
 
 - package:
     - apt: progress
+      brew: progress
     - apt: python3-pip
       apk: py3-pip
 

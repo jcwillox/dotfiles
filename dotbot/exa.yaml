@@ -27,3 +27,7 @@
     then:
       - package:
           - brew: eza
+
+- link:
+    ~/.config/zsh/exa.zsh:
+      source: exa/aliases.zsh

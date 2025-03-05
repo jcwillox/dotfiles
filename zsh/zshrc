@@ -29,6 +29,8 @@ plugins=(
   bun
   uv
   catimg
+  1password
+  gh
 )
 
 if (( $+commands[go] )); then
@@ -45,6 +47,10 @@ fi
 
 if [ -f ~/.config/zsh/kali.zsh ]; then
   plugins+=("web-search")
+fi
+
+if [[ "$OSTYPE" == darwin* ]]; then
+  plugins=("brew" "${plugins[@]}")
 fi
 
 for file in ~/.config/zsh/*; do

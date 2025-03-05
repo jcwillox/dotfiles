@@ -17,6 +17,9 @@ profiles:
     - dust
     - sd
     - delta
+  darwin:
+    - *ubuntu
+    - gh
   full: &full
     - *ubuntu
     - hacking_tools
@@ -37,6 +40,7 @@ default_profile:
   - full: '{{ env "CI" }}'
   - wsl:  '{{ IsWSL }}'
   - kali: '{{ MatchDistro "kali" }}'
+  - darwin: '{{ eq OS "darwin" }}'
   - ubuntu
 
 strip_path: true

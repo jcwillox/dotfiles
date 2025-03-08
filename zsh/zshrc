@@ -23,6 +23,7 @@ plugins=(
   command-not-found
   history-substring-search
   nvm
+  fnm
   aliases
   extract
   nmap

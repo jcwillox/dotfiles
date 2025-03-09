@@ -150,14 +150,14 @@ function Find-Taskfile {
 
 function task {
     if (Test-Path Taskfile.yaml) {
-        task.ps1 @args
+        task.exe @args
     } else {
         $path = Find-Taskfile
         if (-not $path) {
-            task.ps1 @args
+            task.exe @args
         } else {
             # Write-Output "from: $(Resolve-Path -Relative $path)"
-            task.ps1 --taskfile $path @args
+            task.exe --taskfile $path @args
         }
     }
 }

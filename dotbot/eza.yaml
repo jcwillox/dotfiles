@@ -1,0 +1,35 @@
+- system:
+    arch: amd64
+    os: linux
+    then:
+    - install:
+        name: "eza"
+        url: https://github.com/eza-community/eza
+        try_sudo: true
+        download:
+          url: '/releases/download/v{{ .Version }}/eza_x86_64-unknown-linux-{{ LIBC }}.tar.gz'
+          extract:
+            "./eza":
+              path: "{{ Local }}/bin"
+        then:
+          - download:
+              url: '/releases/download/v{{ .Version }}/completions-{{ .Version }}.tar.gz'
+          - extract:
+              "{{.Path}}":
+                - "./target/completions-{{ .Version }}/_eza": "{{ Local }}/share/zsh/site-functions/#/_eza"
+          - system:
+              is_root: true
+              then:
+                - extract:
+                    "{{.Path}}":
+                      - "./target/completions-{{ .Version }}/eza": /etc/bash_completion.d/#/eza
+
+- system:
+    os: darwin
+    then:
+      - package:
+          - brew: eza
+
+- link:
+    ~/.config/zsh/eza.zsh:
+      source: eza/aliases.zsh

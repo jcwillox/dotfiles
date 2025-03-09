@@ -10,7 +10,7 @@ profiles:
   ubuntu: &ubuntu
     - linux
     - zsh
-    - exa
+    - eza
     - bat
     - neofetch
     - vim

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+if [ "$(which eza)" ]; then
+    current_version=$(eza --version | grep -oE "v[0-9\.]+")
+    echo "eza: removing $current_version"
+
+    sudo rm "/usr/local/bin/eza" && echo "eza: removed /usr/local/bin/eza"
+    sudo rm "/usr/local/share/zsh/site-functions/_eza" && echo "eza: removed /usr/local/share/zsh/site-functions/_eza"
+    sudo rm "/etc/bash_completion.d/eza" && echo "eza: removed /etc/bash_completion.d/eza"
+fi

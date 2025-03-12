@@ -52,6 +52,7 @@ fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
   plugins=("brew" "${plugins[@]}")
+  plugins+=("web-search" "macos")
 fi
 
 for file in ~/.config/zsh/*; do

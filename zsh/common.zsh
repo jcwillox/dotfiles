@@ -44,6 +44,7 @@ alias mkd=take
 alias x="chmod +x"
 alias ipy="ipython"
 alias dl="dotbot download"
+alias envc="env | bat -l ini"
 
 # colorize
 alias ip='ip --color=auto'

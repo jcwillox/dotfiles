@@ -9,6 +9,9 @@
 [push]
 	autoSetupRemote = true
 
+[rebase]
+	autosquash = true
+
 [core]
 	autocrlf = input
 	pager = delta

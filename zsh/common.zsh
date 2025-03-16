@@ -7,17 +7,12 @@ zle_highlight=('paste:none')
 # include local completions
 fpath=("$HOME/.local/share/zsh/site-functions" $fpath)
 
+export EDITOR="vim"
 export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS='-R'
 export PAGER='less -F'
 export FNM_COREPACK_ENABLED="true"
-
-if [[ "$OSTYPE" == darwin* ]]; then
-  export EDITOR="code"
-else
-  export EDITOR="vim"
-fi
 
 if [ -d "$HOME/go/bin" ] ; then
   export PATH="$HOME/go/bin:$PATH"
@@ -37,7 +32,7 @@ if [[ -v WT_SESSION ]]; then
 fi
 
 ############### ALIASES ###############
-alias zshconfig="$EDITOR ~/.zshrc"
+alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
 alias servedir="python3 -m http.server -b 0.0.0.0 80"
 alias mkd=take

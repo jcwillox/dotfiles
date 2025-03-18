@@ -43,6 +43,8 @@
       source: p10k/rainbow.zsh
     ~/.config/p10k/robbyrussell.zsh:
       source: p10k/robbyrussell.zsh
+    ~/.oh-my-zsh/custom/plugins/fnm-shell:
+      source: zsh/plugins/fnm-shell
 
 - package: zsh
 

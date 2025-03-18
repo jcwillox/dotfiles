@@ -24,6 +24,7 @@ plugins=(
   history-substring-search
   nvm
   fnm
+  fnm-shell
   aliases
   extract
   nmap

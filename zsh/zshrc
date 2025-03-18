@@ -33,6 +33,7 @@ plugins=(
   catimg
   1password
   gh
+  stripe
 )
 
 if (( $+commands[go] )); then
@@ -41,6 +42,18 @@ fi
 
 if (( $+commands[apt] )); then
   plugins+=("ubuntu")
+fi
+
+if (( $+commands[aws] )); then
+  plugins+=("aws")
+fi
+
+if (( $+commands[code] )); then
+  plugins+=("vscode")
+fi
+
+if (( $+commands[npm] )); then
+  plugins+=("npm")
 fi
 
 if (( $+commands[nmap] )); then

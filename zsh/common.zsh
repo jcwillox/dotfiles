@@ -36,7 +36,7 @@ alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
 alias servedir="python3 -m http.server -b 0.0.0.0 80"
 alias mkd=take
-alias x="chmod +x"
+alias xx="chmod +x"
 alias ipy="ipython"
 alias dl="dotbot download"
 alias envc="env | bat -l ini"
@@ -50,6 +50,11 @@ alias dps="docker ps -a --format 'table $(printf '\e[92m'){{.Names}}\t$(printf '
 if (( $+commands[dpkg] )); then
   alias dia="sudo dpkg -i ./*.deb"
   alias di="sudo dpkg -i"
+fi
+
+if (( $+commands[node-alias] )); then
+  alias n="node-alias"
+  alias b="NODE_ALIAS_MANAGER=bun node-alias"
 fi
 
 ############### KEYBINDS ###############
@@ -69,6 +74,14 @@ motd() {
 
 vimw() {
   vim $(which "$1")
+}
+
+batw() {
+  bat $(which "$1")
+}
+
+codew() {
+  code $(which "$1")
 }
 
 ############### MODULES ###############

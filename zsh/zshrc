@@ -72,8 +72,8 @@ if [ -f ~/.config/zsh/kali.zsh ]; then
 fi
 
 if [[ "$OSTYPE" == darwin* ]]; then
-  plugins=("brew" "${plugins[@]}")
-  plugins+=("web-search" "macos")
+  zstyle :omz:plugins:iterm2 shell-integration yes
+  plugins+=("brew" "web-search" "macos" "iterm2")
 fi
 
 for file in ~/.config/zsh/*; do

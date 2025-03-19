@@ -24,7 +24,6 @@ plugins=(
   history-substring-search
   nvm
   fnm
-  fnm-shell
   aliases
   extract
   nmap
@@ -58,6 +57,14 @@ fi
 
 if (( $+commands[nmap] )); then
   plugins+=("nmap")
+fi
+
+if [[ -x /opt/homebrew/bin/brew ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+if (( $+commands[fnm] )); then
+  eval "$(fnm env --use-on-cd --shell zsh)"
 fi
 
 if [ -f ~/.config/zsh/kali.zsh ]; then

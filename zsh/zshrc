@@ -80,11 +80,11 @@ for file in ~/.config/zsh/*; do
   source "$file"
 done
 
-if [ "$TERM_PROGRAM" != "vscode" ] &&
-   [ "$TERM_PROGRAM" != "Jetbrains.Fleet" ] &&
-   [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
-  cd - > /dev/null
-fi
+# if [ "$TERM_PROGRAM" != "vscode" ] &&
+#    [ "$TERM_PROGRAM" != "Jetbrains.Fleet" ] &&
+#    [ "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
+#   cd - > /dev/null
+# fi
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in

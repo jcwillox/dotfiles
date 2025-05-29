@@ -20,10 +20,12 @@ profiles:
   darwin:
     - *ubuntu
     - gh
+    - fnm
   full: &full
     - *ubuntu
     - hacking_tools
     - gdb
+    - fnm
   kali:
     - *full
     - python2

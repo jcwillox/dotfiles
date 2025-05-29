@@ -55,6 +55,8 @@ fi
 if (( $+commands[node-alias] )); then
   alias n="node-alias"
   alias b="NODE_ALIAS_MANAGER=bun node-alias"
+  alias ni="node-alias install"
+  alias nr="node-alias run"
 fi
 
 ############### KEYBINDS ###############

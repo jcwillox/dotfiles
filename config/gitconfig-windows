@@ -1,5 +1,6 @@
 [core]
 	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+    filemode = false
 
 [delta]
 	hyperlinks = true

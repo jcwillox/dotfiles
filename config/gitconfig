@@ -16,6 +16,7 @@
 	autocrlf = input
 	pager = delta
 	ignorecase = false
+	filemode = true
 
 [init]
 	defaultBranch = main

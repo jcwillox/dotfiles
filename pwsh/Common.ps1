@@ -6,6 +6,7 @@ $env:VIMINIT = "source ~/.config/vim/vimrc"
 $env:BAT_PAGER = "less -F"
 $env:LESS = "-r"
 $env:VIRTUAL_ENV_DISABLE_PROMPT = $true
+$env:FNM_COREPACK_ENABLED = "true"
 
 if ($env:WT_SESSION -or $env:LC_COLORTERM) {
 	$env:COLORTERM = "truecolor"
@@ -150,14 +151,14 @@ function Find-Taskfile {
 
 function task {
     if (Test-Path Taskfile.yaml) {
-        task.exe @args
+        task.ps1 @args
     } else {
         $path = Find-Taskfile
         if (-not $path) {
-            task.exe @args
+            task.ps1 @args
         } else {
             # Write-Output "from: $(Resolve-Path -Relative $path)"
-            task.exe --taskfile $path @args
+            task.ps1 --taskfile $path @args
         }
     }
 }

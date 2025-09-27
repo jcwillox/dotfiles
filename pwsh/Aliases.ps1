@@ -47,10 +47,8 @@ New-FunctionAlias "codep" { code (Get-Command @args | Select-Object -ExpandPrope
 New-WslAlias "bash"
 New-WslAlias "grep" "grep --color=always"
 New-WslAlias "zsh"
-New-WslAlias "eza"
 New-WslAlias "base64"
 New-WslAlias "tar"
-New-WslAlias "eza-la" "eza --long --icons --group-directories-first --git --all"
 
 # docker
 New-FunctionAlias "dc" "docker-compose"

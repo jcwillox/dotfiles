@@ -40,6 +40,7 @@ alias xx="chmod +x"
 alias ipy="ipython"
 alias dl="dotbot download"
 alias envc="env | bat -l ini"
+alias ff="fastfetch"
 
 # colorize
 alias ip='ip --color=auto'
@@ -57,6 +58,7 @@ if (( $+commands[node-alias] )); then
   alias b="NODE_ALIAS_MANAGER=bun node-alias"
   alias ni="node-alias install"
   alias nr="node-alias run"
+  alias nx="node-alias exec"
 fi
 
 ############### KEYBINDS ###############

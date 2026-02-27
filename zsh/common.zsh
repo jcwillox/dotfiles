@@ -41,6 +41,8 @@ alias ipy="ipython"
 alias dl="dotbot download"
 alias envc="env | bat -l ini"
 alias ff="fastfetch"
+alias bui="brew outdated | gum choose --no-limit | xargs brew upgrade"
+alias cls="clear"
 
 # colorize
 alias ip='ip --color=auto'

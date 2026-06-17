@@ -64,7 +64,7 @@ if [[ -x /opt/homebrew/bin/brew ]]; then
 fi
 
 if (( $+commands[fnm] )); then
-  eval "$(fnm env --use-on-cd --shell zsh)"
+  eval "$(fnm env --use-on-cd --corepack-enabled --shell zsh)"
 fi
 
 if [ -f ~/.config/zsh/kali.zsh ]; then

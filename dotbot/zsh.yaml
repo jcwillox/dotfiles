@@ -8,6 +8,10 @@
       url: https://github.com/zdharma-continuum/fast-syntax-highlighting
       name: zdharma-continuum/fast-syntax-highlighting
 
+    ~/.oh-my-zsh/custom/plugins/zsh-shift-select:
+      url: https://github.com/jirutka/zsh-shift-select
+      name: jirutka/zsh-shift-select
+
 - install:
     name: zsh-autosuggestions
     url: https://github.com/zsh-users/zsh-autosuggestions

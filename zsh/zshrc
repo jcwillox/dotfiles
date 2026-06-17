@@ -33,6 +33,7 @@ plugins=(
   1password
   gh
   stripe
+  zsh-shift-select
 )
 
 if (( $+commands[go] )); then

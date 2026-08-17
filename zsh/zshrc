@@ -44,6 +44,10 @@ if (( $+commands[apt] )); then
   plugins+=("ubuntu")
 fi
 
+if (( $+commands[pacman] )); then
+  plugins+=("archlinux")
+fi
+
 if (( $+commands[aws] )); then
   plugins+=("aws")
 fi

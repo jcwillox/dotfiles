@@ -5,14 +5,14 @@ profiles:
   windows:
     - windows
     - bat
-    - neofetch
+    - fastfetch
     - vim
   ubuntu: &ubuntu
     - linux
     - zsh
     - eza
     - bat
-    - neofetch
+    - fastfetch
     - vim
     - dust
     - sd

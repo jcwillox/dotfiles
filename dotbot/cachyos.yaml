@@ -1,0 +1,48 @@
+# core packages
+- package:
+    - btop
+    - paru
+    - ripgrep
+
+# main packages
+- package:
+    - fd
+    - hyperfine
+    - hexyl
+    - uv
+    - lazygit
+    - lazydocker
+
+# extra packages
+- package:
+    - 7zip
+    - duf
+    - dysk
+    - syncthing
+    - localsend
+
+# docker
+- package:
+    - docker
+    - docker-compose
+    - docker-buildx
+    # sudo systemctl enable --now docker
+
+# fonts
+- package:
+    - ttf-fira-code
+    - ttf-firacode-nerd
+    - ttf-meslo-nerd
+    - ttf-opensans
+    - ttf-roboto
+    - noto-fonts
+
+# aur packages
+#- paru:
+#    - mpv-handler
+#    - 1password
+#    - google-chrome
+#    - syncthingtray-qt6 (chaotic-aur)
+#    - dtop-bin
+#    - vicinae-bin
+#    - ttf-segoe-ui-variable

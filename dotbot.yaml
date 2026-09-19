@@ -26,24 +26,33 @@ profiles:
     - *ubuntu
     - hacking_tools
     - gdb
+    - gh
     - fnm
+  cachyos:
+    - *ubuntu
+    - gh
+    - fnm
+    - mpv
+    - golang
+    - seclists
+    - task
+    - cachyos
   kali:
     - *full
     - python2
   wsl:
     - *full
-    - gh
-    - fnm
-    - wsl
     - golang
     - seclists
     - task
+    - wsl
 
 default_profile:
   - windows: '{{ eq OS "windows" }}'
   - full: '{{ env "CI" }}'
   - wsl:  '{{ IsWSL }}'
   - kali: '{{ MatchDistro "kali" }}'
+  - cachyos: '{{ MatchDistro "cachyos" }}'
   - darwin: '{{ eq OS "darwin" }}'
   - ubuntu
 

@@ -13,20 +13,6 @@
       name: jirutka/zsh-shift-select
 
 - install:
-    name: zsh-autosuggestions
-    url: https://github.com/zsh-users/zsh-autosuggestions
-    version:
-      url: /tags
-      regex: "/tags/v([\\d.]+)\\.tar\\.gz"
-    download:
-      url: /archive/v{{ .Version }}.tar.gz
-      extract:
-        "**/*":
-          path: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-          replace: true
-          strip: 1
-
-- install:
     name: powerlevel10k
     url: https://github.com/romkatv/powerlevel10k
     download:

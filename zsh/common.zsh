@@ -42,6 +42,7 @@ alias envc="env | bat -l ini"
 alias ff="fastfetch"
 alias bui="brew outdated | gum choose --no-limit | xargs brew upgrade"
 alias cls="clear"
+alias dtemp="docker run --rm -it -v /etc/localtime:/etc/localtime:ro --name dotfiles ghcr.io/jcwillox/dotfiles:latest"
 
 # colorize
 alias ip='ip --color=auto'

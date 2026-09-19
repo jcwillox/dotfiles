@@ -1,0 +1,15 @@
+- package: mpv
+
+- link:
+    ~/.config/mpv/fonts:
+      source: mpv/fonts
+    ~/.config/mpv/script-opts:
+      source: mpv/script-opts
+    ~/.config/mpv/scripts:
+      source: mpv/scripts
+    ~/.config/mpv/input.conf:
+      source: mpv/input.conf
+    ~/.config/mpv/menu.conf:
+      source: mpv/menu.conf
+    ~/.config/mpv/mpv.conf:
+      source: mpv/mpv.conf

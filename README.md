@@ -9,7 +9,7 @@ My personal dotfiles repo, powered by [dotbot](https://github.com/jcwillox/dotbo
 This will install dotbot into `~/.local/bin` then clone this repo and run the default profile.
 
 ```bash
-sh -c "$(curl -fsSL tinyurl.com/dotbot)" -- init --apply jcwillox
+sh -c "$(curl -fsSL jcwillox.com/l/dotbot)" -- init --apply jcwillox
 ```
 
 ## Testing

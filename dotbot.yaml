@@ -32,10 +32,11 @@ profiles:
     - python2
   wsl:
     - *full
-    - seclists
     - gh
+    - fnm
     - wsl
     - golang
+    - seclists
     - task
 
 default_profile:

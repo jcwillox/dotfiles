@@ -1,19 +1,22 @@
 - system:
-    arch: amd64
-    os: linux
-    then:
-    - install:
-        name: "fnm"
-        url: "https://github.com/schniz/fnm"
-        try_sudo: true
-        download:
-          url: "/releases/download/v{{ .Version }}/fnm-linux.zip"
-          extract:
-            "fnm":
-              path: "{{ Local }}/bin"
+    - os: darwin
+      then:
+        - package:
+            - brew: fnm
+    - family: arch
+      then:
+        - package:
+            - pacman: fnm
+    - arch: amd64
+      os: linux
+      then:
+      - install:
+          name: "fnm"
+          url: "https://github.com/schniz/fnm"
+          try_sudo: true
+          download:
+            url: "/releases/download/v{{ .Version }}/fnm-linux.zip"
+            extract:
+              "fnm":
+                path: "{{ Local }}/bin"
 
-- system:
-    os: darwin
-    then:
-      - package:
-          - brew: fnm

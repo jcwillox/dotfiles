@@ -1,8 +1,19 @@
-- install:
-    name: "go-task"
-    url: "https://github.com/go-task/task"
-    sudo: true
-    download:
-      url: /releases/download/v{{ .Version }}/task_{{ .Version }}_linux_amd64.deb
-    shell:
-      command: dpkg -i {{.Path}}
+- system:
+    - os: darwin
+      then:
+        - package:
+            - brew: go-task
+    - family: arch
+      then:
+        - package:
+            - pacman: go-task
+    - os: linux
+      then:
+        - install:
+            name: "go-task"
+            url: "https://github.com/go-task/task"
+            sudo: true
+            download:
+              url: /releases/download/v{{ .Version }}/task_{{ .Version }}_linux_amd64.deb
+            shell:
+              command: dpkg -i {{.Path}}

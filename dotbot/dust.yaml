@@ -1,20 +1,23 @@
 - system:
-    arch: amd64
-    os: linux
-    then:
-    - install:
-        name: "dust"
-        url: "https://github.com/bootandy/dust"
-        try_sudo: true
-        download:
-          url: "/releases/download/v{{ .Version }}/dust-v{{ .Version }}-x86_64-unknown-linux-{{ LIBC }}.tar.gz"
-          extract:
-            "*/dust":
-              path: "{{Local}}/bin"
-              strip: 1
+    - os: darwin
+      then:
+        - package:
+            - brew: dust
+    - family: arch
+      then:
+        - package:
+            - pacman: dust
+    - arch: amd64
+      os: linux
+      then:
+      - install:
+          name: "dust"
+          url: "https://github.com/bootandy/dust"
+          try_sudo: true
+          download:
+            url: "/releases/download/v{{ .Version }}/dust-v{{ .Version }}-x86_64-unknown-linux-{{ LIBC }}.tar.gz"
+            extract:
+              "*/dust":
+                path: "{{Local}}/bin"
+                strip: 1
 
-- system:
-    os: darwin
-    then:
-      - package:
-          - brew: dust

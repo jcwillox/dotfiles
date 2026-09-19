@@ -17,6 +17,7 @@ profiles:
     - dust
     - sd
     - delta
+    - yazi
   darwin:
     - *ubuntu
     - gh

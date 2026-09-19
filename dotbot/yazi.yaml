@@ -1,0 +1,39 @@
+- system:
+    - os: darwin
+      then:
+        - package:
+            - brew: yazi
+
+    - family: arch
+      then:
+        - package:
+            - pacman: yazi
+
+    - os: linux
+      arch: amd64
+      then:
+        - install:
+            name: "yazi"
+            url: "https://github.com/sxyazi/yazi"
+            try_sudo: true
+            download:
+              url: "/releases/download/v{{ .Version }}/yazi-x86_64-unknown-linux-{{ LIBC }}.zip"
+              extract:
+                "*/yazi":
+                  path: "{{ Local }}/bin"
+                  strip: 1
+                "*/ya":
+                  path: "{{ Local }}/bin"
+                  strip: 1
+                "*/completions/yazi.bash":
+                  path: "{{ Local }}/share/bash-completion/completions"
+                  strip: 2
+                "*/completions/ya.bash":
+                  path: "{{ Local }}/share/bash-completion/completions"
+                  strip: 2
+                "*/completions/_yazi":
+                  path: "{{ Local }}/share/zsh/site-functions"
+                  strip: 2
+                "*/completions/_ya":
+                  path: "{{ Local }}/share/zsh/site-functions"
+                  strip: 2

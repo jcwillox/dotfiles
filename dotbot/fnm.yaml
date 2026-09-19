@@ -17,4 +17,3 @@
     then:
       - package:
           - brew: fnm
-

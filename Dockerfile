@@ -1,9 +1,9 @@
-FROM python:trixie
+FROM python:latest
 
-ENV USER test
-ENV TERM xterm-256color
-ENV DOTBOT_NO_UPDATE_REPO 1
-ENV CI true
+ENV USER=test
+ENV TERM=xterm-256color
+ENV DOTBOT_NO_UPDATE_REPO=1
+ENV CI=true
 
 RUN apt update && apt install -y sudo zsh
 
@@ -24,4 +24,4 @@ RUN mkdir -p /home/test/.local/state/dotbot \
 
 WORKDIR /home/test
 
-CMD "bash"
+CMD ["bash"]

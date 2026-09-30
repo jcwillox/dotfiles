@@ -34,6 +34,7 @@ plugins=(
   gh
   stripe
   zsh-shift-select
+  fzf
 )
 
 if (( $+commands[go] )); then
@@ -79,6 +80,7 @@ fi
 if [[ "$OSTYPE" == darwin* ]]; then
   zstyle :omz:plugins:iterm2 shell-integration yes
   plugins+=("brew" "web-search" "macos" "iterm2")
+  alias iterm="open -a iTerm"
 fi
 
 for file in ~/.config/zsh/*; do

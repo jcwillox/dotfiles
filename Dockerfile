@@ -1,4 +1,4 @@
-FROM python:latest
+FROM ghcr.io/jcwillox/dotbot:python-debian
 
 ENV USER=test
 ENV TERM=xterm-256color
@@ -15,7 +15,6 @@ RUN useradd -p $(openssl passwd -1 "1") test -G sudo
 
 COPY --chown=test:test . /home/test/dotfiles
 
-RUN sh -c "$(curl -fsSL jcwillox.com/l/dotbot)"
 RUN dotbot completion zsh > /usr/share/zsh/vendor-completions/_dotbot
 
 USER test

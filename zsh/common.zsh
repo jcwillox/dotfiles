@@ -12,6 +12,7 @@ export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS='-R'
 export PAGER='less -F'
+export PI_CACHE_RETENTION="long"
 
 if [ -d "$HOME/go/bin" ] ; then
   export PATH="$HOME/go/bin:$PATH"

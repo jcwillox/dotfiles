@@ -18,6 +18,7 @@ profiles:
     - sd
     - delta
     - yazi
+    - fresh
   darwin:
     - *ubuntu
     - gh

@@ -7,8 +7,6 @@ zle_highlight=('paste:none')
 # include local completions
 fpath=("$HOME/.local/share/zsh/site-functions" $fpath)
 
-export EDITOR="vim"
-export VIMINIT="source ~/.config/vim/vimrc"
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS='-R'
 export PAGER='less -F'
@@ -23,6 +21,19 @@ if [ -d "$HOME/.bun" ] ; then
   export PATH="$BUN_INSTALL/bin:$PATH"
 fi
 
+if (( $+commands[nvim] )); then
+  export EDITOR="nvim"
+  alias vim="nvim"
+else
+  export VIMINIT="source ~/.config/vim/vimrc"
+
+  if (( $+commands[fresh] )); then
+    export EDITOR="fresh"
+  else
+    export EDITOR="vim"
+  fi
+fi
+
 if [[ -v LC_COLORTERM ]]; then
   export COLORTERM=$LC_COLORTERM
 fi
@@ -34,6 +45,7 @@ fi
 ############### ALIASES ###############
 alias zshconfig="vim ~/.zshrc"
 alias reload="exec zsh"
+alias fr="fresh"
 alias servedir="python3 -m http.server -b 0.0.0.0 80"
 alias mkd=take
 alias xx="chmod +x"

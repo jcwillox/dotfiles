@@ -1,0 +1,29 @@
+{
+  "theme": "horizon-extended.json",
+  "check_for_updates": false,
+  "auto_attach": false,
+  "editor": {
+    "nerd_font_icons": true,
+    "hot_exit": false,
+    "trim_trailing_whitespace_on_save": true,
+    "whitespace_spaces_trailing": true
+  },
+  "file_explorer": {
+    "tree_indicator_collapsed": "\uf460",
+    "tree_indicator_expanded": "\uf47c"
+  },
+  "keybindings": [
+    {
+      "key": "m",
+      "modifiers": ["alt"],
+      "action": "markdownToggleCompose",
+      "when": "normal"
+    }
+  ],
+  "lsp": {
+    "python": [
+      { "command": "ty", "args": ["server"] },
+      { "command": "ruff", "args": ["server"] }
+    ]
+  }
+}

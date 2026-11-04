@@ -1,0 +1,24 @@
+- system:
+    - os: darwin
+      then:
+        - package:
+            - brew: fresh-editor
+
+    - os: linux
+      arch: amd64
+      then:
+        - install:
+            name: "fresh"
+            url: "https://github.com/sinelaw/fresh"
+            try_sudo: true
+            download:
+              url: "/releases/download/v{{ .Version }}/fresh-editor-x86_64-unknown-linux-{{ LIBC }}.tar.xz"
+              extract:
+                "*/fresh":
+                  path: "{{ Local }}/bin"
+                  strip: 1
+
+- link:
+    ~/.config/fresh:
+      source: fresh
+      safe_force: true

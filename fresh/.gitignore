@@ -1,0 +1,9 @@
+/*
+!/.gitignore
+!/config.json
+!/themes/
+/themes/*
+!/themes/horizon-extended.json
+!/plugins/
+/plugins/*
+!/plugins/file-icons.ts

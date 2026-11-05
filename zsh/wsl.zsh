@@ -13,13 +13,7 @@ function pycharm {
 }
 
 # forward ssh-agent from windows
-export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock
-if ! ps -auxww | grep -q "[n]piperelay.exe -ei -s //./pipe/openssh-ssh-agent"; then
-  if [[ -S $SSH_AUTH_SOCK ]]; then
-      rm $SSH_AUTH_SOCK
-  fi
-  (setsid socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:"npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork &) >/dev/null 2>&1
-fi
+export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR:-/run/user/$(id -u)}/1password-agent.sock
 
 # facilitate windows executable interop
 function exe {

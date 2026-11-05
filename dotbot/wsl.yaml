@@ -28,3 +28,24 @@
       source: "{{.UserProfile}}/AppData/Local/Programs/Microsoft VS Code/bin/code"
     /usr/local/bin/wt.exe:
       source: "{{.UserProfile}}/AppData/Local/Microsoft/WindowsApps/wt.exe"
+
+- create:
+    - ~/.config/systemd/user
+
+- link:
+    ~/.config/systemd/user/1password-ssh-agent.service:
+      source: wsl/1password-ssh-agent.service
+
+- shell:
+    command: systemctl --user is-enabled 1password-ssh-agent.service 2>/dev/null | tr -d '\r\n' || true
+    capture: true
+    stdout: false
+    desc: false
+
+- if:
+    condition:
+      - '{{ ne .Stdout "enabled" }}'
+    then:
+      shell:
+        desc: "Enabling 1Password ssh agent relay"
+        command: systemctl --user daemon-reload && systemctl --user enable --now 1password-ssh-agent.service

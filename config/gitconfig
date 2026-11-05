@@ -33,6 +33,10 @@
 
 [diff]
     colorMoved = default
+    tool = fresh
+
+[difftool "fresh"]
+    cmd = fresh --diff \"$LOCAL\" \"$REMOTE\"
 
 [credential "https://github.com"]
 	helper =

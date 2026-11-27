@@ -1,0 +1,17 @@
+- shell:
+    command: >-
+      [ ! -d /etc/ssh/sshd_config.d ] ||
+      cmp -s ssh/sshd-hardening.conf /etc/ssh/sshd_config.d/40-hardening.conf ||
+      printf install
+    capture: true
+    stdout: false
+    desc: false
+
+- if:
+    condition:
+      - '{{ eq .Stdout "install" }}'
+    then:
+      shell:
+        desc: "Installing sshd hardening config"
+        command: install -m 644 ssh/sshd-hardening.conf /etc/ssh/sshd_config.d/40-hardening.conf
+        sudo: true

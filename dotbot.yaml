@@ -37,6 +37,7 @@ profiles:
     - golang
     - seclists
     - task
+    - sshd
     - cachyos
   kali:
     - *full

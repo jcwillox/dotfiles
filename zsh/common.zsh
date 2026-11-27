@@ -5,7 +5,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 zle_highlight=('paste:none')
 
 # include local completions
-fpath=("$HOME/.local/share/zsh/site-functions" $fpath)
+fpath=("$HOME/.local/share/zsh/site-functions" /usr/share/zsh/vendor-completions $fpath)
 
 export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export LESS='-R'
